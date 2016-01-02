@@ -1,0 +1,11 @@
+.gaugeContainer {
+   width: 600px; 
+   height: 400px; 
+   margin: 0 auto;
+}
+
+.gauge {
+    width: 300px; 
+    height: 200px; 
+    float: left;
+}

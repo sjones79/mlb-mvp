@@ -111,45 +111,42 @@
 
 									<!-- Post -->
 										<article class="box post">
-											<div id="pitchResultHeatMap" style="display:none;"></div>
+											<div id="pitchResultHeatMap"></div>
 										</article>
 
 									<!-- Post -->
 										<article class="box post">
-                                            <header>
-                                                <br>
-                                                <h3><a href="#">Pitch Velocity and Spin Rate</a></h3>
-								            </header>
-											 <div style="width: 600px; height: 400px; margin: 0 auto;">
-                                                <div id="pitchSpeedGaugeCH" style="width: 300px; height: 200px; float: left"></div>
-                                                <div id="spinRotationGaugeCH" style="width: 300px; height: 200px; float: left"></div>
+                                            <br>
+											 <div class="gaugeContainer">
+                                                <div id="pitchSpeedGaugeCH" class="gauge"></div>
+                                                <div id="spinRotationGaugeCH" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeCU" style="width: 300px; height: 200px; float: left;  display: none;"></div>
-                                                <div id="spinRotationGaugeCU" style="width: 300px; height: 200px; float: left; display: none;"></div>
+                                                <div id="pitchSpeedGaugeCU" class="gauge"></div>
+                                                <div id="spinRotationGaugeCU" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeFC" style="width: 300px; height: 200px; float: left; display: none;"></div>
-                                                <div id="spinRotationGaugeFC" style="width: 300px; height: 200px; float: left; display: none;"></div>
+                                                <div id="pitchSpeedGaugeFC" class="gauge"></div>
+                                                <div id="spinRotationGaugeFC" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeFF" style="width: 300px; height: 200px; float: left; display: none;"></div>
-                                                <div id="spinRotationGaugeFF" style="width: 300px; height: 200px; float: left; display: none;"></div>
+                                                <div id="pitchSpeedGaugeFF" class="gauge"></div>
+                                                <div id="spinRotationGaugeFF" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeFS" style="width: 300px; height: 200px; float: left; display: none;"></div>
-                                                <div id="spinRotationGaugeFS" style="width: 300px; height: 200px; float: left; display: none;"></div>
+                                                <div id="pitchSpeedGaugeFS" class="gauge"></div>
+                                                <div id="spinRotationGaugeFS" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeFT" style="width: 300px; height: 200px; float: left; display: none;"></div>
-                                                <div id="spinRotationGaugeFT" style="width: 300px; height: 200px; float: left; display: none;"></div>
+                                                <div id="pitchSpeedGaugeFT" class="gauge"></div>
+                                                <div id="spinRotationGaugeFT" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeIN" style="width: 300px; height: 200px; float: left; display: none;"></div>
-                                                <div id="spinRotationGaugeIN" style="width: 300px; height: 200px; float: left; display: none;"></div>
+                                                <div id="pitchSpeedGaugeIN" class="gauge"></div>
+                                                <div id="spinRotationGaugeIN" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeKC" style="width: 300px; height: 200px; float: left; display: none;"></div>
-                                                <div id="spinRotationGaugeKC" style="width: 300px; height: 200px; float: left; display: none;"></div>
+                                                <div id="pitchSpeedGaugeKC" class="gauge"></div>
+                                                <div id="spinRotationGaugeKC" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeSI" style="width: 300px; height: 200px; float: left; display: none;"></div>
-                                                <div id="spinRotationGaugeSI" style="width: 300px; height: 200px; float: left; display: none;"></div>
+                                                <div id="pitchSpeedGaugeSI" class="gauge"></div>
+                                                <div id="spinRotationGaugeSI" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeSL" style="width: 300px; height: 200px; float: left; display: none;"></div>
-                                                <div id="spinRotationGaugeSL" style="width: 300px; height: 200px; float: left; display: none;"></div>
+                                                <div id="pitchSpeedGaugeSL" class="gauge"></div>
+                                                <div id="spinRotationGaugeSL" class="gauge"></div>
                                             </div>
 										</article>
 
@@ -158,8 +155,10 @@
                                 <!-- Sidebar -->
 								<div id="sidebar" class="4u 12u(mobile)">
 
-									<!-- Excerpts -->
 										<section class="main clearfix">
+                                            <header>
+																<h3><a href="#">Pitch Velocity and Spin Rate</a></h3>
+															</header>
 								        <!-- pitch velocity & spin rate picklist -->
                                             <select id="cd-dropdown" class="cd-select">
                                                 <option value="-1" selected>Select A Pitch Type</option>
@@ -186,8 +185,8 @@
                                                 <option value="5" class="icon-opera">Kris Medlen</option>
                                                 <option value="5" class="icon-opera">Steven Matz</option>
                                             </select>
-			             </section> 
-                            <!--end picklist-->
+                                     </section> 
+                                        <!--end picklist-->
 
 									<!-- Highlights -->
 										<section>

@@ -51,16 +51,13 @@ var createHeatMapSeriesData = function(data) {
        }
            
     }
-    
-     console.log("storageArr", storageArr);
-    
+        
     for(var i = 0; i < storageArr.length; i++) {
         var storage = storageArr[i];
         for(var j = 0; j < storage.length; j++) {
             seriesData.push([i, j, storageArr[i][j]]);
         }
     }
-    console.log("wow...", seriesData);
     
     return seriesData;
 }
