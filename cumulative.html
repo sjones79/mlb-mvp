@@ -1,227 +1,217 @@
 <!DOCTYPE HTML>
-<!--
-	Strongly Typed by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>2015 World Series</title>
+		<title>Pitching Analysis</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="css/main.css" />
+		
+        <link rel="stylesheet" href="css/demo.css" />
+        <link rel="stylesheet" href="css/customdropdown.css" />
+        <link rel="stylesheet" href="css/chart.css" />
+        <link rel="stylesheet" href="css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+        <script src="js/modernizr.custom.63321.js"></script>
+        <script src="scripts/d3.min.js"></script>
+        <script src="http://code.highcharts.com/adapters/standalone-framework.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+        <script src="scripts/pitchTypeScatterPlot.js"></script>
+        <script src="scripts/pitchResultHeatMap.js"></script>
+        <script src="scripts/pitchGaugeChart.js"></script>
 	</head>
-	<body class="no-sidebar">
+	<body class="homepage">
 		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+							<h1><a href="index.html">Pitching Analysis</a></h1>
+							<p>An examination of pitchers from the <strong>2015 World Series</strong></p>
+
+                            <!-- pitcher picklist -->
+                           <!-- <section class="main clearfix">
+                                <select id="cd-dropdown" class="cd-select">
+                                    <option value="-1" selected>Select A Pitcher</option>
+                                    <option value="1" class="icon-chrome">Edinson Volquez</option>
+                                    <option value="2" class="icon-safari">Matt Harvey</option>
+                                    <option value="3" class="icon-IE">Danny Duffy</option>
+                                    <option value="4" class="icon-firefox">Kelvin Herrera</option>
+                                    <option value="5" class="icon-opera">Addison Reed</option>
+                                    <option value="5" class="icon-opera">Tyler Clippard</option>
+                                    <option value="5" class="icon-opera">Jeurys Familia</option>
+                                    <option value="5" class="icon-opera">Luke Hochevar</option>
+                                    <option value="5" class="icon-opera">Wade Davis</option>
+                                    <option value="5" class="icon-opera">Jon Niese</option>
+                                    <option value="5" class="icon-opera">Ryan Madson</option>
+                                    <option value="5" class="icon-opera">Chris Young</option>
+                                    <option value="5" class="icon-opera">Bartolo Colon</option>
+                                    <option value="5" class="icon-opera">Johnny Cueto</option>
+                                    <option value="5" class="icon-opera">Jacob deGrom</option>
+                                    <option value="5" class="icon-opera">Hansel Robles</option>
+                                    <option value="5" class="icon-opera">Sean Gilmartin</option>
+                                    <option value="5" class="icon-opera">Noah Syndergaard</option>
+                                    <option value="5" class="icon-opera">Yordano Ventura</option>
+                                    <option value="5" class="icon-opera">Franklin Morales</option>
+                                    <option value="5" class="icon-opera">Kris Medlen</option>
+                                    <option value="5" class="icon-opera">Steven Matz</option>
+                                </select>
+			             </section> -->
+                            <!--end picklist-->
+					   </div>
+                    
+				</div>
+
+			<!-- Features -->
+				<div id="features-wrapper">
+					<section id="features" class="container">
+						<div class="row">
+                            <div class="4u 12u(mobile)">
+
+								<!-- Cumulative -->
+									<section>
+										<a href="#" class="image featured"><img src="images/baseball/Baseball_Stadium.jpg" alt="" /></a>
+										<ul class="actions">
+							                 <li><a id="worldseries" class="button icon fa-file">2015 World Series</a></li>
+						                </ul>
+									</section>
+
+							</div>
+							<div class="4u 12u(mobile)">
+
+								<!-- By Pitcher -->
+									<section>
+										<a href="#" class="image featured"><img src="images/baseball/Baseball_Player_Throw_Ball.jpg" alt="" /></a>
+                                        <ul class="actions">
+							                 <li><a href="#" class="button icon fa-file">By Pitcher</a></li>
+						                </ul>
+									</section>
+
+							</div>
+							
+						</div>
+					</section>
+				</div>
+
+			<!-- Pitching Types and Totals -->
+				<div id="banner-wrapper">
+                    <div id="pitchTypeTotalLineChart"></div>
+				</div>
 
 			<!-- Main -->
 				<div id="main-wrapper">
 					<div id="main" class="container">
-						<div id="content">
-
-							<!-- Post -->
-								<article class="box post">
-									<header>
-										<h2>Behold! This is the <strong>no sidebar</strong> layout<br />
-										with no sidebar at all!</h2>
-									</header>
-                                    <div id="pitchTypeTotalLineChart"></div>
-                                    <hr>
-                                    <div id="pitchResultHeatMap"></div>
-                                    <br>
-                                    Gauges for Pitch Types (consider a show/hide button for each gauge)
-                                    <div style="width: 600px; height: 400px; margin: 0 auto">
-                                        <div id="pitchSpeedGaugeCH" style="width: 300px; height: 200px; float: left"></div>
-                                        <div id="spinRotationGaugeCH" style="width: 300px; height: 200px; float: left"></div>
-
-                                        <div id="pitchSpeedGaugeCU" style="width: 300px; height: 200px; float: left"></div>
-                                        <div id="spinRotationGaugeCU" style="width: 300px; height: 200px; float: left"></div>
-
-                                        <div id="pitchSpeedGaugeFC" style="width: 300px; height: 200px; float: left"></div>
-                                        <div id="spinRotationGaugeFC" style="width: 300px; height: 200px; float: left"></div>
-
-                                        <div id="pitchSpeedGaugeFF" style="width: 300px; height: 200px; float: left"></div>
-                                        <div id="spinRotationGaugeFF" style="width: 300px; height: 200px; float: left"></div>
-
-                                        <div id="pitchSpeedGaugeFS" style="width: 300px; height: 200px; float: left"></div>
-                                        <div id="spinRotationGaugeFS" style="width: 300px; height: 200px; float: left"></div>
-
-                                        <div id="pitchSpeedGaugeFT" style="width: 300px; height: 200px; float: left"></div>
-                                        <div id="spinRotationGaugeFT" style="width: 300px; height: 200px; float: left"></div>
-
-                                        <div id="pitchSpeedGaugeIN" style="width: 300px; height: 200px; float: left"></div>
-                                        <div id="spinRotationGaugeIN" style="width: 300px; height: 200px; float: left"></div>
-
-                                        <div id="pitchSpeedGaugeKC" style="width: 300px; height: 200px; float: left"></div>
-                                        <div id="spinRotationGaugeKC" style="width: 300px; height: 200px; float: left"></div>
-
-                                        <div id="pitchSpeedGaugeSI" style="width: 300px; height: 200px; float: left"></div>
-                                        <div id="spinRotationGaugeSI" style="width: 300px; height: 200px; float: left"></div>
-
-                                        <div id="pitchSpeedGaugeSL" style="width: 300px; height: 200px; float: left"></div>
-                                        <div id="spinRotationGaugeSL" style="width: 300px; height: 200px; float: left"></div>
-                                    </div>
-									<span class="image featured"><img src="images/pic04.jpg" alt="" /></span>
-									<h3>And yeah, that's basically it</h3>
-									<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-									ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-									sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-									Curabitur leo nibh, rutrum eu malesuada in, tristique at erat.</p>
-									<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat
-									Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit ligula
-									vel quam viverra sit amet mollis tortor congue. Sed quis mauris sit amet
-									magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada in,
-									tristique at erat. Curabitur leo nibh, rutrum eu malesuada  in, tristique
-									at erat lorem ipsum dolor sit amet lorem ipsum sed consequat magna
-									tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros consequat
-									magna tempus</p>
-									<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-									ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-									sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-									Curabitur leo nibh, rutrum eu malesuada in, tristique at erat.</p>
-									<h3>Accumsan lorem ipsum veroeros</h3>
-									<p>Consequat Phasellus laoreet massa id in, tristique at erat lorem
-									ipsum dolor sit amet lorem ipsum sed consequat magna tempus veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna.</p>
-									<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-									ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-									sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-									Curabitur leo nibh, rutrum eu malesuada in, tristique at erat.</p>
-									<h3>Ligula suspcipit fusce veroeros</h3>
-									<p>Nullam dolore etiam sed massa id in, tristique at erat lorem
-									ipsum dolor sit amet lorem ipsum sed consequat magna tempus veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna.</p>
-									<p>Sed massa id justo mattis pharetra. Fusce suscipit
-									ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-									sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan.</p>
-								</article>
-
-						</div>
-					</div>
-				</div>
-
-			<!-- Footer -->
-				<div id="footer-wrapper">
-					<div id="footer" class="container">
-						<header>
-							<h2>Questions or comments? <strong>Get in touch:</strong></h2>
-						</header>
 						<div class="row">
-							<div class="6u 12u(mobile)">
-								<section>
-									<form method="post" action="#">
-										<div class="row 50%">
-											<div class="6u 12u(mobile)">
-												<input name="name" placeholder="Name" type="text" />
-											</div>
-											<div class="6u 12u(mobile)">
-												<input name="email" placeholder="Email" type="text" />
-											</div>
-										</div>
-										<div class="row 50%">
-											<div class="12u">
-												<textarea name="message" placeholder="Message"></textarea>
-											</div>
-										</div>
-										<div class="row 50%">
-											<div class="12u">
-												<a href="#" class="form-button-submit button icon fa-envelope">Send Message</a>
-											</div>
-										</div>
-									</form>
-								</section>
-							</div>
-							<div class="6u 12u(mobile)">
-								<section>
-									<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat Phaselamet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. Curabitur
-									leo nibh, rutrum eu malesuada.</p>
-									<div class="row">
-										<div class="6u 12u(mobile)">
-											<ul class="icons">
-												<li class="icon fa-home">
-													1234 Somewhere Road<br />
-													Nashville, TN 00000<br />
-													USA
-												</li>
-												<li class="icon fa-phone">
-													(000) 000-0000
-												</li>
-												<li class="icon fa-envelope">
-													<a href="#">info@untitled.tld</a>
-												</li>
-											</ul>
-										</div>
-										<div class="6u 12u(mobile)">
-											<ul class="icons">
-												<li class="icon fa-twitter">
-													<a href="#">@untitled-tld</a>
-												</li>
-												<li class="icon fa-instagram">
-													<a href="#">instagram.com/untitled-tld</a>
-												</li>
-												<li class="icon fa-dribbble">
-													<a href="#">dribbble.com/untitled-tld</a>
-												</li>
-												<li class="icon fa-facebook">
-													<a href="#">facebook.com/untitled-tld</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</section>
-							</div>
+
+							<!-- Content -->
+								<div id="content" class="8u 12u(mobile)">
+										
+									<!-- Speed/RPM gauges -->
+										<article class="box post">
+                                            <br>
+											 <div class="gaugeContainer">
+                                                <div id="pitchSpeedGaugeCH" class="gauge"></div>
+                                                <div id="spinRotationGaugeCH" class="gauge"></div>
+
+                                                <div id="pitchSpeedGaugeCU" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeCU" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeFC" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFC" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeFF" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFF" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeFS" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFS" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeFT" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFT" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeIN" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeIN" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeKC" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeKC" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeSI" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeSI" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeSL" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeSL" class="gauge notDisplayed"></div>
+                                            </div>
+                                            <div id="pitchResultHeatMap"></div>
+										</article>
+								</div>
+                            
+                                <!-- Sidebar -->
+								<div id="sidebar" class="4u 12u(mobile)">
+
+										<section id="pitchMenuSection" class="main clearfix notVisible">
+                                            <header>
+												<h3><a href="#">Pitch Velocity and Spin Rate</a></h3>
+								            </header>
+								        <!-- pitch velocity & spin rate picklist -->
+                                            <select id="cd-dropdown" class="cd-select">
+                                                <option value="ch" selected>Change Up (CH)</option>
+                                                <option value="cu">Curveball (CU)</option>
+                                                <option value="fc">Cutter (FC)</option>
+                                                <option value="ff">Four Seamer (FF)</option>
+                                                <option value="fs">Splitter (FS)</option>
+                                                <option value="ft">Two Seamer (FT)</option>
+                                                <option value="in">Intentional Ball (IN)</option>
+                                                <option value="kc">Knuckle Curve (KC)</option>
+                                                <option value="si">Sinker (SI)</option>
+                                                <option value="sl">Slider (SL)</option>
+                                            </select>
+                                     </section> 
+                                        <!--end picklist-->
+								</div>
+
 						</div>
-					</div>
-					<div id="copyright" class="container">
-						<ul class="links">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
 					</div>
 				</div>
 
 		</div>
 
 		<!-- Scripts -->
+            <script src="scripts/csvUtils.js"></script>
+            <script src="scripts/csv.js"></script>
+            <script src="scripts/chartUtils.js"></script>
 			<script src="js/jquery.min.js"></script>
 			<script src="js/jquery.dropotron.min.js"></script>
 			<script src="js/skel.min.js"></script>
 			<script src="js/skel-viewport.min.js"></script>
 			<script src="js/util.js"></script>
+            <script type="text/javascript" src="js/jquery.dropdown.js"></script>
+		    <script type="text/javascript">
+			     $( function() {
+				    $( '#cd-dropdown' ).dropdown( {
+					   gutter : 5,
+					   stack : false,
+					   slidingIn : 100,
+                        onOptionSelect : function (opt) {
+                            showHideGauges(opt);
+                        }
+				    } );
+			 });
+
+		  </script>
+          
 			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
-			<script src="js/main.js"></script>
+        
+        <script src="js/main.js"></script>
+        <script type="text/javascript">
+            d3.select("#worldseries").on("click", function(d,i){
+                pitchingData();
+                showPitchVelocityMenu();
+            })
+       
+    </script>
 
 	</body>
 </html>
