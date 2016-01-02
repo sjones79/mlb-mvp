@@ -54,8 +54,8 @@ var pitchResultHeatMap = function(pitchResultTypes, pitchResultsByPitchType, ser
 
         tooltip: {
             formatter: function () {
-                return 'Pitch Type ' + '<b>' + this.series.xAxis.categories[this.point.x] + '</b> resulted in <br><b>' +
-                    this.point.value + '</b> <br><b>' + this.series.yAxis.categories[this.point.y] + '</b>';
+                return 'The ' + '<b>' + this.series.xAxis.categories[this.point.x] + '</b> pitch resulted in <br><b>' +
+                    this.point.value + '</b> <b> ' + this.series.yAxis.categories[this.point.y] + '</b>';
             }
         },
 
