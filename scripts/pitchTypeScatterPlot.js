@@ -9,7 +9,7 @@ var pitchTypeScatterPlot = function(dataMap, dataObjList) {
         
     var pitchTypeChart = new Highcharts.Chart({
         chart: {
-            renderTo: 'pitchTypeTotalLineChart',
+            renderTo: 'pitchTypeTotalScatterPlot',
             type: 'scatter',
             zoomType: 'xy'
         },
