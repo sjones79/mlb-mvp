@@ -8,10 +8,6 @@ var pitchingData = function() {
     //load csv file
     d3.csv("data/2015-WS.csv", function (error, pitches){
         console.log("all pitching data: ", pitches);
-       
-        /*********************************************************/
-        /* World Series Cumulative data aggregation */
-        /*********************************************************/
         
         
          //the total number of pitches (or all rows in the file)
@@ -59,10 +55,17 @@ var pitchingData = function() {
             .map(pitches);
         console.log("pitchResults by pitch type", pitchResultsByType);
         
-        
-        /**************************************************************/
-        /* Data aggregation by pitcher  */
-        /**************************************************************/
+        var pitchTypeMap = createMap(pitchTotalsPerType);
+        var pitchResultsByPitch = createPitchResultList(pitchResultsByType);
+        var heatMapSeries = createHeatMapSeriesData(pitchResultsByType);
+        pitchTypeScatterPlot(pitchTotalsPerType, pitchTypeMap);
+        pitchResultHeatMap(pitchResultsByPitch, pitchResultsByType, heatMapSeries);
+        pitchGaugeChart(averagePitchVelocity, averageSpinRate);
+
+    });
+    
+    var pitchingDataByPitcher = function () {
+
         
         //TODO unused total pitches by pitcher (scatterplot)
         var totalPitchesByPitcher = d3.nest()
@@ -137,13 +140,5 @@ var pitchingData = function() {
             .map(pitches);
         console.log("pitchResults by pitch type", pitchResultsByType);
         
-        
-        var pitchTypeMap = createMap(pitchTotalsPerType);
-        var pitchResultsByPitch = createPitchResultList(pitchResultsByType);
-        var heatMapSeries = createHeatMapSeriesData(pitchResultsByType);
-        pitchTypeScatterPlot(pitchTotalsPerType, pitchTypeMap);
-        pitchResultHeatMap(pitchResultsByPitch, pitchResultsByType, heatMapSeries);
-        pitchGaugeChart(averagePitchVelocity, averageSpinRate);
-
-    })
+    }
 }
