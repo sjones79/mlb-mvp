@@ -2,6 +2,14 @@
     display: none;
 }
 
+.notVisible {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
 .gaugeContainer {
    width: 600px; 
    height: 400px; 
