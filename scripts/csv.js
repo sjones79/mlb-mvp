@@ -114,10 +114,10 @@ var pitchingData = function() {
                 }));
             })
            .map(pitches);
-        console.log("averagePitchVelocity", averagePitchVelocity);
+        console.log("averagePitchVelocityByPitcher", averagePitchVelocityByPitcher);
         
          //used in pitch gauge RPM charts
-        var averageSpinRate = d3.nest()
+        var averageSpinRateByPitcher = d3.nest()
             .key(function(d){ return d.pitchType;})
             .sortKeys(d3.ascending)
             .rollup(function(d){
@@ -126,67 +126,17 @@ var pitchingData = function() {
                 }));
             })
            .map(pitches);
-        console.log("averageSpinRate", averageSpinRate);
+        console.log("averageSpinRateByPitcher", averageSpinRateByPitcher);
    
         //used in pitch result heat map
-        var pitchResultsByType = d3.nest()
+        var pitchResultsByPitcherAndType = d3.nest()
+            .key(function(d){ return d.pitcher;})
             .key(function(d) { return d.pitchType;})
             .key(function(d) { return d.pitchResult; })
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
         console.log("pitchResults by pitch type", pitchResultsByType);
         
-        
-        //TODO Unused
-       /* var pitchTypesPerMonth = d3.nest()
-            .key(function(d) { 
-                var dStr = new Date(d.gameDate);
-                var monthNumber = dStr.getMonth()+1;
-                return monthNumber;
-            })
-            .key(function(d) { return d.pitchType; })
-            
-        .rollup(function(leaves) { return leaves.length; })
-        .map(pitches);
-                
-        var pitchObjList =[];
-        
-        for(month in pitchTypesPerMonth) {
-            for(pitchTypes in pitchTypesPerMonth[month]){
-                var pitchObj = {};
-                pitchObj.month = month;
-                pitchObj.pitchType = pitchTypes;
-                pitchObj.totalPerMonth = pitchTypesPerMonth[month][pitchTypes];
-                pitchObjList.push({
-                    month: month,
-                    pitchType: pitchTypes,
-                    totalPerMonth: pitchTypesPerMonth[month][pitchTypes],
-                });
-            }
-        }
-        
-                
-        //TODO Unused stacking the number of pitches with the pitch result
-        var pitchResultByMonth = d3.nest()
-            .key(function(d) { 
-                var dStr = new Date(d.gameDate);
-                var monthNumber = dStr.getMonth()+1;
-                return monthNumber;
-            })
-            .key(function(d) { return d.pitchType; })
-            .key(function(d) { return d.pitchResult; })
-            .rollup(function(leaves) { return leaves.length; })
-            .map(pitches);
-        console.log("pitch results per month: ", pitchResultByMonth);
-        
-        for(var i = 0; i < pitchObjList.length; i++) {
-            pitchResult = pitchResultByMonth[pitchObjList[i].month][pitchObjList[i].pitchType];
-            
-            for(resultType in pitchResult){
-                pitchObjList[i][resultType] = pitchResult[resultType];
-            } 
-        } 
-        console.log("The aftermath",pitchObjList); */
         
         var pitchTypeMap = createMap(pitchTotalsPerType);
         var pitchResultsByPitch = createPitchResultList(pitchResultsByType);
