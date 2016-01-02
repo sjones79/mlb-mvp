@@ -36,10 +36,7 @@ var createHeatMapSeriesData = function(data) {
     var pitchResultNumber;
     
      var pitchTypes = Object.keys(data);
-    console.log(data);
-    console.log("array of pitch types",pitchTypes);
-    console.log("array of pitch result types",pitchResultTypes);
-     
+    
     for(var i = 0; i < pitchTypes.length; i++){
         if(!storageArr[i]) {
             storageArr[i] = [];
