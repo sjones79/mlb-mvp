@@ -109,13 +109,8 @@
 
 							<!-- Content -->
 								<div id="content" class="8u 12u(mobile)">
-
-									<!-- Post -->
-										<article class="box post">
-											<div id="pitchResultHeatMap"></div>
-										</article>
-
-									<!-- Post -->
+										
+									<!-- Speed/RPM gauges -->
 										<article class="box post">
                                             <br>
 											 <div class="gaugeContainer">
@@ -150,46 +145,36 @@
                                                 <div id="spinRotationGaugeSL" class="gauge notDisplayed"></div>
                                             </div>
 										</article>
+                                        <!-- WS Heatmap -->
+                                        <article class="box post">
+											<div id="pitchResultHeatMap"></div>
+										</article>
 
 								</div>
+                            
                             
                                 <!-- Sidebar -->
 								<div id="sidebar" class="4u 12u(mobile)">
 
-										<section id="pitchMenu" class="main clearfix notDisplayed">
+										<section id="pitchMenuSection" class="main clearfix notVisible">
                                             <header>
 												<h3><a href="#">Pitch Velocity and Spin Rate</a></h3>
 								            </header>
 								        <!-- pitch velocity & spin rate picklist -->
                                             <select id="cd-dropdown" class="cd-select">
-                                                <option value="-1" selected>Select A Pitch Type</option>
-                                                <option value="1" class="icon-chrome">Edinson Volquez</option>
-                                                <option value="2" class="icon-safari">Matt Harvey</option>
-                                                <option value="3" class="icon-IE">Danny Duffy</option>
-                                                <option value="4" class="icon-firefox">Kelvin Herrera</option>
-                                                <option value="5" class="icon-opera">Addison Reed</option>
-                                                <option value="5" class="icon-opera">Tyler Clippard</option>
-                                                <option value="5" class="icon-opera">Jeurys Familia</option>
-                                                <option value="5" class="icon-opera">Luke Hochevar</option>
-                                                <option value="5" class="icon-opera">Wade Davis</option>
-                                                <option value="5" class="icon-opera">Jon Niese</option>
-                                                <option value="5" class="icon-opera">Ryan Madson</option>
-                                                <option value="5" class="icon-opera">Chris Young</option>
-                                                <option value="5" class="icon-opera">Bartolo Colon</option>
-                                                <option value="5" class="icon-opera">Johnny Cueto</option>
-                                                <option value="5" class="icon-opera">Jacob deGrom</option>
-                                                <option value="5" class="icon-opera">Hansel Robles</option>
-                                                <option value="5" class="icon-opera">Sean Gilmartin</option>
-                                                <option value="5" class="icon-opera">Noah Syndergaard</option>
-                                                <option value="5" class="icon-opera">Yordano Ventura</option>
-                                                <option value="5" class="icon-opera">Franklin Morales</option>
-                                                <option value="5" class="icon-opera">Kris Medlen</option>
-                                                <option value="5" class="icon-opera">Steven Matz</option>
+                                                <option value="ch" selected>Change Up (CH)</option>
+                                                <option value="cu">Curveball (CU)</option>
+                                                <option value="fc">Cutter (FC)</option>
+                                                <option value="ff">Four Seamer (FF)</option>
+                                                <option value="fs">Splitter (FS)</option>
+                                                <option value="ft">Two Seamer (FT)</option>
+                                                <option value="in">Intentional Ball (IN)</option>
+                                                <option value="kc">Knuckle Curve (KC)</option>
+                                                <option value="si">Sinker (SI)</option>
+                                                <option value="sl">Slider (SL)</option>
                                             </select>
                                      </section> 
                                         <!--end picklist-->
-
-
 								</div>
 
 						</div>
@@ -199,6 +184,9 @@
 		</div>
 
 		<!-- Scripts -->
+            <script src="scripts/csvUtils.js"></script>
+            <script src="scripts/csv.js"></script>
+            <script src="scripts/chartUtils.js"></script>
 			<script src="js/jquery.min.js"></script>
 			<script src="js/jquery.dropotron.min.js"></script>
 			<script src="js/skel.min.js"></script>
@@ -207,24 +195,25 @@
             <script type="text/javascript" src="js/jquery.dropdown.js"></script>
 		    <script type="text/javascript">
 			     $( function() {
-				
 				    $( '#cd-dropdown' ).dropdown( {
 					   gutter : 5,
 					   stack : false,
-					   slidingIn : 100
+					   slidingIn : 100,
+                        onOptionSelect : function (opt) {
+                            showHideGauges(opt);
+                        }
 				    } );
-
 			 });
 
 		  </script>
+          
 			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
-        <script src="scripts/csvUtils.js"></script>
-        <script src="scripts/csv.js"></script>
-        <script src="scripts/chartUtils.js"></script>
+        
         <script src="js/main.js"></script>
         <script type="text/javascript">
             d3.select("#worldseries").on("click", function(d,i){
                 pitchingData();
+                showPitchVelocityMenu();
             })
        
     </script>
