@@ -17,6 +17,7 @@ var pitchResultHeatMap = function(pitchResultTypes, pitchResultsByPitchType, ser
         },
 
         title: {
+            enabled: true,
             text: 'Pitch Results Per Type'
         },
 
@@ -26,7 +27,10 @@ var pitchResultHeatMap = function(pitchResultTypes, pitchResultsByPitchType, ser
 
         yAxis: {
             categories: pitchResultTypes,
-            title: 'Pitch Results'
+            title: {
+                enabled: true,
+                text: 'Pitch Results'
+            }
         },
 
         colorAxis: {
