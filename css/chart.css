@@ -1,3 +1,7 @@
+.notDisplayed {
+    display: none;
+}
+
 .gaugeContainer {
    width: 600px; 
    height: 400px; 

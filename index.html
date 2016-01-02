@@ -7,7 +7,8 @@
 		<!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
 		
         <link rel="stylesheet" href="css/demo.css" />
-       <link rel="stylesheet" href="css/customdropdown.css" />
+        <link rel="stylesheet" href="css/customdropdown.css" />
+        <link rel="stylesheet" href="css/chart.css" />
         <link rel="stylesheet" href="css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
         <script src="js/modernizr.custom.63321.js"></script>
@@ -97,8 +98,8 @@
 				</div>
 
 			<!-- Pitching Types and Totals -->
-				<div id="banner-wrapper" style="display:none;">
-                    <div id="pitchTypeTotalLineChart"></div>
+				<div id="banner-wrapper">
+                    <div id="pitchTypeTotalLineChart" class="notDisplayed"></div>
 				</div>
 
 			<!-- Main -->
@@ -111,7 +112,7 @@
 
 									<!-- Post -->
 										<article class="box post">
-											<div id="pitchResultHeatMap"></div>
+											<div id="pitchResultHeatMap" class="notDisplayed"></div>
 										</article>
 
 									<!-- Post -->
@@ -121,32 +122,32 @@
                                                 <div id="pitchSpeedGaugeCH" class="gauge"></div>
                                                 <div id="spinRotationGaugeCH" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeCU" class="gauge"></div>
-                                                <div id="spinRotationGaugeCU" class="gauge"></div>
+                                                <div id="pitchSpeedGaugeCU" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeCU" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeFC" class="gauge"></div>
-                                                <div id="spinRotationGaugeFC" class="gauge"></div>
+                                                <div id="pitchSpeedGaugeFC" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFC" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeFF" class="gauge"></div>
-                                                <div id="spinRotationGaugeFF" class="gauge"></div>
+                                                <div id="pitchSpeedGaugeFF" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFF" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeFS" class="gauge"></div>
-                                                <div id="spinRotationGaugeFS" class="gauge"></div>
+                                                <div id="pitchSpeedGaugeFS" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFS" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeFT" class="gauge"></div>
-                                                <div id="spinRotationGaugeFT" class="gauge"></div>
+                                                <div id="pitchSpeedGaugeFT" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFT" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeIN" class="gauge"></div>
-                                                <div id="spinRotationGaugeIN" class="gauge"></div>
+                                                <div id="pitchSpeedGaugeIN" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeIN" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeKC" class="gauge"></div>
-                                                <div id="spinRotationGaugeKC" class="gauge"></div>
+                                                <div id="pitchSpeedGaugeKC" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeKC" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeSI" class="gauge"></div>
-                                                <div id="spinRotationGaugeSI" class="gauge"></div>
+                                                <div id="pitchSpeedGaugeSI" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeSI" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeSL" class="gauge"></div>
-                                                <div id="spinRotationGaugeSL" class="gauge"></div>
+                                                <div id="pitchSpeedGaugeSL" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeSL" class="gauge notDisplayed"></div>
                                             </div>
 										</article>
 
@@ -260,6 +261,7 @@
 			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
         <script src="scripts/csvUtils.js"></script>
         <script src="scripts/csv.js"></script>
+        <script src="scripts/chartUtils.js"></script>
         <script src="js/main.js"></script>
         <script type="text/javascript">
             d3.select("#worldseries").on("click", function(d,i){

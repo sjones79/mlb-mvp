@@ -144,6 +144,7 @@ var pitchingData = function() {
         pitchTypeScatterPlot(pitchTotalsPerType, pitchTypeMap);
         pitchResultHeatMap(pitchResultsByPitch, pitchResultsByType, heatMapSeries);
         pitchGaugeChart(averagePitchVelocity, averageSpinRate);
+        showHideChart();
 
     })
 }
