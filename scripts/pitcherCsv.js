@@ -20,13 +20,6 @@ var pitchingDataByPitcher = function(pitcherId) {
             .map(pitches);
         console.log(" pitch type usage", pitchTotalsPerType);
         
-        //TODO Unused
-        var totalPitchesByPitcher = d3.nest()
-           .key(function(d) { return d.pitcher})
-           .rollup(function(leaves) { return leaves.length;})
-           .entries(pitches);
-        console.log("total pitches by pitcher", totalPitchesByPitcher);
-        
         //used to create the picklist
         var pitcherList = d3.nest()
             .key(function(d) { return d.pitcher}).sortKeys(d3.ascending)
@@ -107,7 +100,7 @@ var pitchingDataByPitcher = function(pitcherId) {
            pitcherBarChart(barChartData);
            
            var gaugeDataByPitcher = pitcherGaugeSeriesData(selectedPitcher, averagePitchVelocityByPitcher, averageSpinRateByPitcher);
-           pitcherGaugesChart(gaugeDataByPitcher.avgVelocityMap, gaugeDataByPitcher.avgSpinRateMap);
+           pitcherGaugesChart(gaugeDataByPitcher.avgVelocityMap, gaugeDataByPitcher.avgSpinMap);
            
        }
                 
