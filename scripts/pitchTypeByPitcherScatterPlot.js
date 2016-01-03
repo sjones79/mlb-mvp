@@ -1,6 +1,8 @@
-var pitchTypeByPitcher = function(pitcherMap, seriesData) {
+var pitchTypeByPitcher = function(scatterPlotData) {
     
-    var pitcherNames = Object.keys(pitcherMap);
+    var pitcherNameObj = scatterPlotData.pitcherList;
+    var pitcherNames = Object.keys(pitcherNameObj);
+    var seriesData = scatterPlotData.seriesData;
         
     var pitchTypeChart = new Highcharts.Chart({
         chart: {
@@ -21,7 +23,7 @@ var pitchTypeByPitcher = function(pitcherMap, seriesData) {
                 enabled: true,
                 text: 'Pitchers'
             },
-            categories: pitcherNames
+            categories: 'category'
             
         },
         tooltip: {
