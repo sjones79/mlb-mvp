@@ -58,3 +58,29 @@ var createHeatMapSeriesData = function(data) {
     
     return seriesData;
 }
+
+var pitcherScatterPlotSeriesData = function (data) {
+    var seriesData = [];
+    var pitchTypeNumber;
+    
+    for (pitcher in data) {
+        var storageArr = [];
+        console.log("data pitcher", data[pitcher]);
+        var pitcherData = data[pitcher];
+        var pitchTypes = Object.keys(pitcherData);
+        
+        for(var i = 0; i < pitchTypes.length; i++){
+        
+            pitchTypeNumber = pitcherData[pitchTypes[i]] !== undefined ? pitcherData[pitchTypes[i]] : 0;
+            storageArr.push([pitchTypes[i],pitchTypeNumber]);             
+        }
+        
+        var pitcherObj = {};
+        pitcherObj.name = pitcher;
+        pitcherObj.data = storageArr;
+        seriesData.push(pitcherObj);
+    }
+    
+    console.log("pitcher scatter plot series data", seriesData);
+    return seriesData;
+}
