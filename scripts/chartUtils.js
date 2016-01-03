@@ -2,6 +2,10 @@ var showPitchVelocityMenu = function() {
     $("#pitchMenuSection").removeClass("notVisible").addClass("visible");
 }
 
+var showPitcherSelection = function () {
+    $(".pitcherSelection").show();
+}
+
 var showHideGauges = function(option){
     $('.gauge').hide();
     
@@ -57,8 +61,6 @@ var showHideGauges = function(option){
             $('#pitchSpeedGaugeSL').show();
             $('#spinRotationGaugeSL').show();
         break;
-            
-
     }
     
             
