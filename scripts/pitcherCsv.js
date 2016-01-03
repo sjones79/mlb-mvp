@@ -38,6 +38,13 @@ var pitchingDataByPitcher = function() {
         
         console.log("pitcherList", pitcherList);
         
+        //same as above but with array of objects
+        var pitcherObjList = d3.nest()
+            .key(function(d) { return d.pitcher}).sortKeys(d3.ascending)
+            .rollup(function(leaves) { return leaves.length; })
+            .map(pitches);
+         console.log("pitcherObjList", pitcherList);
+        
         var list = d3.select("#pitchers").append("select");
 
             list.selectAll("option")
@@ -107,7 +114,7 @@ var pitchingDataByPitcher = function() {
         console.log("pitchTypes against batter hands", pitchTypesAgainstBatterHands);
         
         var scatterPlotData = pitcherScatterPlotSeriesData(pitchTotalsPerPitcherByType);
-        pitchTypeByPitcher(pitcherList, scatterPlotData);
+        pitchTypeByPitcher(pitcherObjList, scatterPlotData);
     });
     
     
