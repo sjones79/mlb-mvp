@@ -45,8 +45,7 @@ var createHeatMapSeriesData = function(data) {
            pitchResultNumber = data[pitchTypes[i]][pitchResultTypes[j]];
 
            storageArr[i][j] = pitchResultNumber !== undefined ? pitchResultNumber : 0;
-       }
-           
+       }  
     }
         
     for(var i = 0; i < storageArr.length; i++) {
@@ -59,24 +58,23 @@ var createHeatMapSeriesData = function(data) {
     return seriesData;
 }
 
-var pitcherScatterPlotSeriesData = function (data) {
+var pitcherScatterPlotSeriesData = function (pitcherByPitchType) {
     var seriesData = [];
     var pitchTypeNumber;
     
-    for (pitcher in data) {
+    for (pitchType in pitcherByPitchType) {
         var storageArr = [];
-        console.log("data pitcher", data[pitcher]);
-        var pitcherData = data[pitcher];
-        var pitchTypes = Object.keys(pitcherData);
+        var pitcherData = pitcherByPitchType[pitchType];
+        var pitchers = Object.keys(pitcherData);
         
-        for(var i = 0; i < pitchTypes.length; i++){
+        for(var i = 0; i < pitchers.length; i++){
         
-            pitchTypeNumber = pitcherData[pitchTypes[i]] !== undefined ? pitcherData[pitchTypes[i]] : 0;
-            storageArr.push([pitchTypes[i],pitchTypeNumber]);             
+            pitchTypeNumber = pitcherData[pitchers[i]] !== undefined ? pitcherData[pitchers[i]] : 0;
+            storageArr.push([pitchers[i],pitchTypeNumber]);             
         }
         
         var pitcherObj = {};
-        pitcherObj.name = pitcher;
+        pitcherObj.name = pitchType;
         pitcherObj.data = storageArr;
         seriesData.push(pitcherObj);
     }
