@@ -73,7 +73,6 @@ var pitchTypeScatterPlot = function(dataMap, dataObjList) {
             }
         },
         series: [{
-            name: 'Pitch Type',
             color: 'rgba(120, 223, 223, .5)',
             data: seriesData
         }]
