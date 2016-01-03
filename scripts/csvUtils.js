@@ -25,7 +25,6 @@ var createPitchResultList = function(data){
     pitchResultsArray = storageArr.filter(function(elem, pos) {
         return storageArr.indexOf(elem) == pos;
     }); 
-    console.log("pitch results",pitchResultsArray);
     return pitchResultsArray;
 }
 
@@ -36,10 +35,7 @@ var createHeatMapSeriesData = function(data) {
     var pitchResultNumber;
     
      var pitchTypes = Object.keys(data);
-    console.log(data);
-    console.log("array of pitch types",pitchTypes);
-    console.log("array of pitch result types",pitchResultTypes);
-     
+    
     for(var i = 0; i < pitchTypes.length; i++){
         if(!storageArr[i]) {
             storageArr[i] = [];
@@ -48,8 +44,7 @@ var createHeatMapSeriesData = function(data) {
            pitchResultNumber = data[pitchTypes[i]][pitchResultTypes[j]];
 
            storageArr[i][j] = pitchResultNumber !== undefined ? pitchResultNumber : 0;
-       }
-           
+       }  
     }
         
     for(var i = 0; i < storageArr.length; i++) {
@@ -60,4 +55,110 @@ var createHeatMapSeriesData = function(data) {
     }
     
     return seriesData;
+}
+
+var pitcherScatterPlotSeriesData = function (pitcherByPitchType) {
+    var seriesData = [];
+    var seriesPitchers = [];
+    var pitchTypeCount;
+    var scatterPlotContents = {};
+    
+    for (pitchType in pitcherByPitchType) {
+        var storageArr = [];
+        var pitcherData = pitcherByPitchType[pitchType];
+        var pitchers = Object.keys(pitcherData);
+        
+        for(var i = 0; i < pitchers.length; i++){
+        
+            pitchTypeCount = pitcherData[pitchers[i]] !== undefined ? pitcherData[pitchers[i]] : 0;
+            storageArr.push([pitchers[i],pitchTypeCount]); 
+        }
+        var pitcherObj = {};
+        pitcherObj.name = pitchType;
+        pitcherObj.data = storageArr;
+        
+        seriesData.push(pitcherObj);
+        
+    }
+    
+    scatterPlotContents.seriesData = seriesData;
+            
+    return scatterPlotContents;
+}
+
+var pitcherBarChartSeriesData = function(selectedPitcher, pitchTypesAgainstBatterHands) {
+    var seriesData = [];
+    var pitchObj = pitchTypesAgainstBatterHands[selectedPitcher];
+    var barChartContents = {};
+    
+    for(hand in pitchObj){
+        var storageArr = [];
+        
+        var pitchTypeData = pitchObj[hand];
+        
+        var pitchTypes = Object.keys(pitchTypeData);
+        
+        for(var i = 0; i < pitchTypes.length; i++){
+            storageArr.push(pitchTypeData[pitchTypes[i]]);
+        }
+        
+        var barchartObj = {};
+        barchartObj.name = hand === 'L' ? "LHH" : "RHH";
+        barchartObj.data = storageArr;
+        seriesData.push(barchartObj);
+        
+        if(hand === 'L'){
+            barChartContents.left = pitchTypes;
+        }
+        else{
+            barChartContents.right = pitchTypes;
+        }
+        
+    }
+        
+    barChartContents.seriesData = seriesData;
+    
+    var leftHandPitchTypes = barChartContents.left;
+    var rightHandPitchTypes = barChartContents.right;
+    
+    var seriesPitchTypes = leftHandPitchTypes.concat(rightHandPitchTypes);
+        
+    barChartContents.seriesPitchTypes = seriesPitchTypes;
+    
+    return barChartContents;
+}
+
+var pitcherGaugeSeriesData = function(selectedPitcher, velocityMap, spinMap){
+    
+    var gaugeData = {};
+    
+    var pitcherVelocityMap = velocityMap[selectedPitcher];
+    var pitcherSpinMap = spinMap[selectedPitcher];
+    
+    gaugeData.avgVelocityMap = pitcherVelocityMap;
+    gaugeData.avgSpinMap = pitcherSpinMap;
+    
+    return gaugeData;
+    
+}
+
+
+var getSelectedPitcher = function (pitcherId, pitcherList) {
+    
+   var selectedPitcher;
+    
+    if (isNumeric(pitcherId)){ 
+        var pitcherObj = pitcherList[pitcherId];
+        selectedPitcher = pitcherObj['key'];
+    
+    } 
+    else{
+        console.log("pitcherId is non numeric ", pitcherId);
+    }
+
+    return selectedPitcher; 
+}
+
+var isNumeric = function (n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
 }

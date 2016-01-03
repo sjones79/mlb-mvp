@@ -1,4 +1,5 @@
-var pitchGaugeChart = function (avgVelocityMap, avgSpinRateMap){
+var pitcherGaugesChart = function (avgVelocityMap, avgSpinRateMap){
+    
     // Load the fonts
 Highcharts.createElement('link', {
    href: '//fonts.googleapis.com/css?family=Signika:400,700',
@@ -223,7 +224,7 @@ var speedGaugeChartCH =  new Highcharts.Chart(Highcharts.merge(velocityGaugeOpts
   
         chart: {
             type: 'solidgauge',
-            renderTo: 'pitchSpeedGaugeCH'
+            renderTo: 'pitcherSpeedGaugeCH'
         },
 
         series: [{
@@ -243,7 +244,7 @@ var speedGaugeChartCH =  new Highcharts.Chart(Highcharts.merge(velocityGaugeOpts
 var rpmGaugeChartCH = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
          chart: {
             type: 'solidgauge',
-            renderTo: 'spinRotationGaugeCH'
+            renderTo: 'pitcherSpinGaugeCH'
         },
 
         
@@ -267,7 +268,7 @@ var speedGaugeChartCU =  new Highcharts.Chart(Highcharts.merge(velocityGaugeOpts
   
         chart: {
             type: 'solidgauge',
-            renderTo: 'pitchSpeedGaugeCU'
+            renderTo: 'pitcherSpeedGaugeCU'
         },
 
         series: [{
@@ -287,7 +288,7 @@ var speedGaugeChartCU =  new Highcharts.Chart(Highcharts.merge(velocityGaugeOpts
 var rpmGaugeChartCU = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
          chart: {
             type: 'solidgauge',
-            renderTo: 'spinRotationGaugeCU'
+            renderTo: 'pitcherSpinGaugeCU'
         },
 
         
@@ -310,7 +311,7 @@ var rpmGaugeChartCU = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
   
         chart: {
             type: 'solidgauge',
-            renderTo: 'pitchSpeedGaugeFC'
+            renderTo: 'pitcherSpeedGaugeFC'
         },
 
         series: [{
@@ -330,7 +331,7 @@ var rpmGaugeChartCU = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
 var rpmGaugeChartFC = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
          chart: {
             type: 'solidgauge',
-            renderTo: 'spinRotationGaugeFC'
+            renderTo: 'pitcherSpinGaugeFC'
         },
 
         
@@ -352,7 +353,7 @@ var speedGaugeChartFF =  new Highcharts.Chart(Highcharts.merge(velocityGaugeOpts
   
         chart: {
             type: 'solidgauge',
-            renderTo: 'pitchSpeedGaugeFF'
+            renderTo: 'pitcherSpeedGaugeFF'
         },
 
         series: [{
@@ -372,7 +373,7 @@ var speedGaugeChartFF =  new Highcharts.Chart(Highcharts.merge(velocityGaugeOpts
 var rpmGaugeChartFF = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
          chart: {
             type: 'solidgauge',
-            renderTo: 'spinRotationGaugeFF'
+            renderTo: 'pitcherSpinGaugeFF'
         },
 
         
@@ -394,7 +395,7 @@ var rpmGaugeChartFF = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
   
         chart: {
             type: 'solidgauge',
-            renderTo: 'pitchSpeedGaugeFS'
+            renderTo: 'pitcherSpeedGaugeFS'
         },
 
         series: [{
@@ -414,7 +415,7 @@ var rpmGaugeChartFF = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
 var rpmGaugeChartFS = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
          chart: {
             type: 'solidgauge',
-            renderTo: 'spinRotationGaugeFS'
+            renderTo: 'pitcherSpinGaugeFS'
         },
 
         
@@ -436,7 +437,7 @@ var speedGaugeChartFT =  new Highcharts.Chart(Highcharts.merge(velocityGaugeOpts
   
         chart: {
             type: 'solidgauge',
-            renderTo: 'pitchSpeedGaugeFT'
+            renderTo: 'pitcherSpeedGaugeFT'
         },
 
         series: [{
@@ -456,7 +457,7 @@ var speedGaugeChartFT =  new Highcharts.Chart(Highcharts.merge(velocityGaugeOpts
 var rpmGaugeChartFT = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
          chart: {
             type: 'solidgauge',
-            renderTo: 'spinRotationGaugeFT'
+            renderTo: 'pitcherSpinGaugeFT'
         },
 
         
@@ -478,7 +479,7 @@ var rpmGaugeChartFT = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
   
         chart: {
             type: 'solidgauge',
-            renderTo: 'pitchSpeedGaugeIN'
+            renderTo: 'pitcherSpeedGaugeIN'
         },
 
         series: [{
@@ -498,7 +499,7 @@ var rpmGaugeChartFT = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
 var rpmGaugeChartIN = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
          chart: {
             type: 'solidgauge',
-            renderTo: 'spinRotationGaugeIN'
+            renderTo: 'pitcherSpinGaugeIN'
         },
 
         
@@ -520,7 +521,7 @@ var rpmGaugeChartIN = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
   
         chart: {
             type: 'solidgauge',
-            renderTo: 'pitchSpeedGaugeKC'
+            renderTo: 'pitcherSpeedGaugeKC'
         },
 
         series: [{
@@ -540,7 +541,7 @@ var rpmGaugeChartIN = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
 var rpmGaugeChartKC = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
          chart: {
             type: 'solidgauge',
-            renderTo: 'spinRotationGaugeKC'
+            renderTo: 'pitcherSpinGaugeKC'
         },
 
         
@@ -562,7 +563,7 @@ var rpmGaugeChartKC = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
   
         chart: {
             type: 'solidgauge',
-            renderTo: 'pitchSpeedGaugeSI'
+            renderTo: 'pitcherSpeedGaugeSI'
         },
 
         series: [{
@@ -582,7 +583,7 @@ var rpmGaugeChartKC = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
 var rpmGaugeChartSI = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
          chart: {
             type: 'solidgauge',
-            renderTo: 'spinRotationGaugeSI'
+            renderTo: 'pitcherSpinGaugeSI'
         },
 
         
@@ -604,7 +605,7 @@ var rpmGaugeChartSI = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
   
         chart: {
             type: 'solidgauge',
-            renderTo: 'pitchSpeedGaugeSL'
+            renderTo: 'pitcherSpeedGaugeSL'
         },
 
         series: [{
@@ -624,7 +625,7 @@ var rpmGaugeChartSI = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
 var rpmGaugeChartSL = new Highcharts.Chart(Highcharts.merge(rpmGaugeOpts,{
          chart: {
             type: 'solidgauge',
-            renderTo: 'spinRotationGaugeSL'
+            renderTo: 'pitcherSpinGaugeSL'
         },
 
         

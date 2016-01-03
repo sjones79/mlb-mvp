@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Pitching Analysis</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
+		
+        <link rel="stylesheet" href="css/demo.css" />
+        <link rel="stylesheet" href="css/customdropdown.css" />
+        <link rel="stylesheet" href="css/chart.css" />
+        <link rel="stylesheet" href="css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+        <script src="js/modernizr.custom.63321.js"></script>
+        <script src="scripts/d3.min.js"></script>
+        <script src="http://code.highcharts.com/adapters/standalone-framework.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+        <script src="scripts/pitcherBarChart.js"></script>
+        <script src="scripts/pitcherGauges.js"></script>
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+							<h1><a href="index.html">Pitching Analysis</a></h1>
+							<p>An examination of pitchers from the <strong>2015 World Series</strong></p>
+                            <ul class="actions">
+                                <li><a href="index.html" class="button icon fa-file">To World Series</a></li>
+                            </ul>
+					   </div>
+                    
+				</div>
+            <!-- Pitcher Selections -->
+				<div id="banner-wrapper" class="pitcherSelection">
+					<div class="inner">
+						<section id="banner" class="container">
+                            <p><strong>Pitcher Selection</strong></Stong></p>
+							<div class="gridMenu">
+                                  <ul>
+                                    <li><a id="0">Addison Reed</a></li>
+                                    <li><a id="1">Bartolo Colon</a></li>
+                                    <li><a id="2">Chris Young</a></li>
+                                    <li><a id="3">Danny Duffy</a></li>
+                                    <li><a id="4">Edinson Volquez</a></li>
+                                    <li><a id="5">Franklin Morales</a></li>
+                                    <li><a id="6">Hansel Robles</a></li>
+                                    <li><a id="14">Matt Harvey</a></li>
+                                    <li><a id="11">Kelvin Herrera</a></li>
+                                    <li><a id="19">Tyler Clippard</a></li>
+                                    <li><a id="8">Jeurys Familia</a></li>
+                                    <li><a id="13">Luke Hochevar</a></li>
+                                    <li><a id="20">Wade Davis</a></li>
+                                    <li><a id="10">Jon Niese</a></li>
+                                    <li><a id="16">Ryan Madson</a></li>
+                                    <li><a id="9">Johnny Cueto</a></li>
+                                    <li><a id="7">Jacob deGrom</a></li>
+                                    <li><a id="17">Sean Gilmartin</a></li>
+                                    <li><a id="15">Noah Syndergaard</a></li>
+                                    <li><a id="21">Yordano Ventura</a></li>
+                                    <li><a id="12">Kris Medlen</a></li>
+                                    <li><a id="18">Steven Matz</a></li>
+                                  </ul>
+                                </div>
+						</section>
+					</div>
+				</div>
+
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div id="main" class="container">
+						<div class="row">
+
+							<!-- Content -->
+								<div id="content" class="8u 12u(mobile)">
+									<!-- Speed/RPM gauges -->
+										<article class="box post">
+                                            <br>
+											 <div class="gaugeContainer">
+                                                <div id="pitcherSpeedGaugeCH" class="gauge"></div>
+                                                <div id="pitcherSpinGaugeCH" class="gauge"></div>
+
+                                                <div id="pitcherSpeedGaugeCU" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeCU" class="gauge notDisplayed"></div>
+
+                                                <div id="pitcherSpeedGaugeFC" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeFC" class="gauge notDisplayed"></div>
+
+                                                <div id="pitcherSpeedGaugeFF" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeFF" class="gauge notDisplayed"></div>
+
+                                                <div id="pitcherSpeedGaugeFS" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeFS" class="gauge notDisplayed"></div>
+
+                                                <div id="pitcherSpeedGaugeFT" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeFT" class="gauge notDisplayed"></div>
+
+                                                <div id="pitcherSpeedGaugeIN" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeIN" class="gauge notDisplayed"></div>
+
+                                                <div id="pitcherSpeedGaugeKC" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeKC" class="gauge notDisplayed"></div>
+
+                                                <div id="pitcherSpeedGaugeSI" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeSI" class="gauge notDisplayed"></div>
+
+                                                <div id="pitcherSpeedGaugeSL" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeSL" class="gauge notDisplayed"></div>
+                                            </div>
+                                            <!-- Barchart-->
+                                            <div class="barchartContainer">
+                                                <div id="pitcherBarChart"></div>
+                                            </div>
+										</article>
+								</div>
+                            
+                                <!-- Sidebar -->
+								<div id="sidebar" class="4u 12u(mobile)">
+
+										<section id="pitchMenuSection" class="main clearfix notVisible">
+                                            <header>
+												<h3><a href="#">Pitch Velocity and Spin Rate</a></h3>
+								            </header>
+								        <!-- pitch velocity & spin rate picklist -->
+                                            <select id="cd-dropdown" class="cd-select">
+                                                <option value="ch" selected>Change Up (CH)</option>
+                                                <option value="cu">Curveball (CU)</option>
+                                                <option value="fc">Cutter (FC)</option>
+                                                <option value="ff">Four Seamer (FF)</option>
+                                                <option value="fs">Splitter (FS)</option>
+                                                <option value="ft">Two Seamer (FT)</option>
+                                                <option value="in">Intentional Ball (IN)</option>
+                                                <option value="kc">Knuckle Curve (KC)</option>
+                                                <option value="si">Sinker (SI)</option>
+                                                <option value="sl">Slider (SL)</option>
+                                            </select>
+                                     </section> 
+                                        <!--end picklist-->
+								</div>
+
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+            <script src="scripts/csvUtils.js"></script>
+            <script src="scripts/pitcherCsv.js"></script>
+            <script src="scripts/chartUtils.js"></script>
+			<script src="js/jquery.min.js"></script>
+			<script src="js/jquery.dropotron.min.js"></script>
+			<script src="js/skel.min.js"></script>
+			<script src="js/skel-viewport.min.js"></script>
+			<script src="js/util.js"></script>
+            <script type="text/javascript" src="js/jquery.dropdown.js"></script>
+		    <script type="text/javascript">
+			     $( function() {
+				    $( '#cd-dropdown' ).dropdown( {
+					   gutter : 5,
+					   stack : false,
+					   slidingIn : 100,
+                        onOptionSelect : function (opt) {
+                            showHideGauges(opt);
+                        }
+				    } );
+                     
+                     $("a").click(function(event) {
+                            pitchingDataByPitcher(event.target.id);
+                            showPitchVelocityMenu();
+                     });
+			 });
+
+		  </script>
+          
+			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
+        
+        <script src="js/main.js"></script>
+        
+	</body>
+</html>

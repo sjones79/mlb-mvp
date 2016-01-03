@@ -21,3 +21,51 @@
     height: 200px; 
     float: left;
 }
+
+.heatmapContainer {
+    height: 400px; 
+    min-width: 310px; 
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
+.barchartContainer {
+    min-width: 310px; 
+    max-width: 800px; 
+    height: 400px; 
+    margin: 0 auto;
+}
+
+.gridMenu {
+  width: 900px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.gridMenu ul {
+  list-style-type: none;
+}
+
+.gridMenu li a {
+    display: block;
+   width: 200px;
+  float: left;
+  margin: 10px;
+  border: 2px solid #fff;
+  padding: 4px;
+  color: #fff;
+
+  -webkit-transition: box-shadow 0.5s ease;
+  -moz-transition: box-shadow 0.5s ease;
+  -o-transition: box-shadow 0.5s ease;
+  -ms-transition: box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease;
+}
+
+.gridMenu li a:hover {
+    color: #ed786a;
+  -webkit-box-shadow: 0px 0px 7px rgba(255,77,77,0.9);
+  box-shadow: 0px 0px 7px rgba(255,77,77,0.9);
+} 
+
+
