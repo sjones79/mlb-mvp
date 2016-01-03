@@ -1,6 +1,6 @@
 /* Parses the csv file and returns the data */
 
-var pitchingDataByPitcher = function() {
+var pitchingDataByPitcher = function(pitcherId) {
     
     //set the date parser
     var parseDate = d3.time.format("%Y-%m-%dT%H:%M:%S").parse;
@@ -8,7 +8,6 @@ var pitchingDataByPitcher = function() {
     //load csv file
     d3.csv("data/2015-WS.csv", function (error, pitches){
         console.log("all pitching data: ", pitches);
-        
         
          //the total number of pitches (or all rows in the file)
         var totalPitches = d3.nest()
@@ -44,17 +43,6 @@ var pitchingDataByPitcher = function() {
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
          console.log("pitcherObjList", pitcherList);
-        
-        var list = d3.select("#pitchers").append("select");
-
-            list.selectAll("option")
-            .data(pitcherList)
-            .enter()
-            .append("option")
-            .attr("value", function(d) {return d.key;})
-            .text(function(d) {
-            return d.key; });
-        
         
         var allDataGroupedByPitcher = d3.nest()
             .key(function(d) { return d.pitcher;})
