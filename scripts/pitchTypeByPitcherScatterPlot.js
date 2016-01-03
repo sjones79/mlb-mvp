@@ -1,7 +1,6 @@
 var pitchTypeByPitcher = function(pitcherMap, seriesData) {
     
     var pitcherNames = Object.keys(pitcherMap);
-    console.log("pitcher names in the chart", pitcherMap);
         
     var pitchTypeChart = new Highcharts.Chart({
         chart: {
