@@ -14,9 +14,16 @@ var pitchingDataByPitcher = function() {
         var totalPitches = d3.nest()
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log("total pitches: ", totalPitches);   
+        console.log("total pitches: ", totalPitches);
         
-        //TODO unused total pitches by pitcher (scatterplot)
+        //generates a list of all pitch types
+        var pitchTotalsPerType = d3.nest()
+            .key(function(d) { return d.pitchType; })
+            .rollup(function(leaves) { return leaves.length; })
+            .map(pitches);
+        console.log(" pitch type usage", pitchTotalsPerType);
+        
+        //TODO Unused
         var totalPitchesByPitcher = d3.nest()
            .key(function(d) { return d.pitcher})
            .rollup(function(leaves) { return leaves.length;})
@@ -47,7 +54,7 @@ var pitchingDataByPitcher = function() {
         console.log("all data grouped by pitcher",allDataGroupedByPitcher);
         
         
-         //used in the pitchtype scatter plot, gives the total number of each pitch type in the file
+         //used in the pitchtype scatter plot, gives the total number of each pitch type used by each pitcher
         var pitchTotalsPerTypeByPitcher = d3.nest()
             .key(function(d){ return d.pitcher})
             .key(function(d) { return d.pitchType; })
@@ -87,16 +94,20 @@ var pitchingDataByPitcher = function() {
             .key(function(d) { return d.pitchResult; })
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log("pitchResults by pitch type", pitchResultsByType);
+        console.log("pitchResults by pitch type and pitcher", pitchResultsByPitcherAndType);
         
          var pitchTypesAgainstBatterHands = d3.nest()
             .key(function(d) { return d.pitcher;})
             .key(function(d) { return d.pitchType;})
             .key(function(d) { return d.batterHand;})
-            .rollup(function(d){
-                .rollup(function(leaves) { return leaves.length; })
+            .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        })
+        console.log("pitchResults by pitch type and pitcher", pitchTypesAgainstBatterHands);
         
+        var scatterPlotData = pitcherScatterPlotSeriesData(pitchTotalsPerTypeByPitcher);
+        pitchTypeByPitcher(pitchTotalsPerType, scatterPlotData);
     });
+    
+    
+    
 }
