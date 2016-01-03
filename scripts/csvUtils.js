@@ -25,7 +25,6 @@ var createPitchResultList = function(data){
     pitchResultsArray = storageArr.filter(function(elem, pos) {
         return storageArr.indexOf(elem) == pos;
     }); 
-    console.log("pitch results",pitchResultsArray);
     return pitchResultsArray;
 }
 
