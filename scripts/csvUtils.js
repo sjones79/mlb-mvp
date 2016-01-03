@@ -81,3 +81,26 @@ var pitcherScatterPlotSeriesData = function (pitcherByPitchType) {
     console.log("pitcher scatter plot series data", seriesData);
     return seriesData;
 }
+
+
+var getSelectedPitcher = function (pitcherId, pitcherList) {
+    
+   var selectedPitcher;
+    
+    if (isNumeric(pitcherId)){ 
+        var pitcherObj = pitcherList[pitcherId];
+        console.log("pitcherObj from getSelectedPitcher", pitcherObj);
+        selectedPitcher = pitcherObj['key'];
+    
+        console.log("selected pitcher", selectedPitcher);
+    } 
+    else{
+        console.log("pitcherId is non numeric ", pitcherId);
+    }
+
+    return selectedPitcher; 
+}
+
+var isNumeric = function (n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
