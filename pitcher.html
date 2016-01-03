@@ -19,7 +19,6 @@
         <script src="https://code.highcharts.com/modules/heatmap.js"></script>
         <script src="http://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
-        <script src="scripts/pitchTypeByPitcherScatterPlot.js"></script>
         <script src="scripts/pitcherBarChart.js"></script>
         <script src="scripts/pitcherGauges.js"></script>
 	</head>
@@ -49,18 +48,6 @@
                                 </section>
 
 							</div>
-							<div class="4u 12u(mobile)">
-
-								<!-- By Pitcher -->
-									<section>
-										<a href="#" class="image featured"><img src="images/baseball/Baseball_Player_Throw_Ball.jpg" alt="" /></a>
-                                        <ul class="actions">
-							                 <li><a id="pitcher" class="button icon fa-file">Pitcher Summary</a></li>
-						                </ul>
-									</section>
-
-							</div>
-							
 						</div>
 					</section>
 				</div>
@@ -213,13 +200,6 @@
 			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
         
         <script src="js/main.js"></script>
-        <script type="text/javascript">
-            d3.select("#pitcher").on("click", function(d,i){
-                pitchingDataByPitcher();
-            });
-            
-       
-    </script>
-
+        
 	</body>
 </html>
