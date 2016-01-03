@@ -1,6 +1,6 @@
-var pitchTypeByPitcher = function(pitchTypeMap, seriesData) {
+var pitchTypeByPitcher = function(pitcherMap, seriesData) {
     
-    var pitchTypeKeys = Object.keys(pitchTypeMap);
+    var pitcherNames = Object.keys(pitcherMap);
         
     var pitchTypeChart = new Highcharts.Chart({
         chart: {
@@ -13,15 +13,15 @@ var pitchTypeByPitcher = function(pitchTypeMap, seriesData) {
             x: -20 //center
         },
         subtitle: {
-            text: '2015 World Series',
+            text: 'Click Pitcher Name Below to Filter Data',
             x: -20
         },
         xAxis: {
             title: {
                 enabled: true,
                 text: 'Pitch Types'
-            },
-            categories: pitchTypeKeys
+            }
+            
         },
         tooltip: {
             headerFormat: '<b>{series.name}</b><br>',
@@ -34,6 +34,8 @@ var pitchTypeByPitcher = function(pitchTypeMap, seriesData) {
             title: {
                 text: '# Pitches Per Type'
             },
+            
+            categories: pitcherNames
 
         },
         
