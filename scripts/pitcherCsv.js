@@ -72,6 +72,7 @@ var pitchingDataByPitcher = function(pitcherId) {
         
          //used in pitch gauge RPM charts
         var averageSpinRateByPitcher = d3.nest()
+            .key(function(d) {return d.pitcher;})
             .key(function(d){ return d.pitchType;})
             .sortKeys(d3.ascending)
             .rollup(function(d){
@@ -101,13 +102,15 @@ var pitchingDataByPitcher = function(pitcherId) {
         
        if(isNumeric(pitcherId)) {
            var selectedPitcher = getSelectedPitcher(pitcherId, pitcherList);
+           
            var barChartData = pitcherBarChartSeriesData(selectedPitcher, pitchTypesAgainstBatterHands);
            pitcherBarChart(barChartData);
            
+           var gaugeDataByPitcher = pitcherGaugeSeriesData(selectedPitcher, averagePitchVelocityByPitcher, averageSpinRateByPitcher);
+           pitcherGaugesChart(gaugeDataByPitcher.avgVelocityMap, gaugeDataByPitcher.avgSpinRateMap);
+           
        }
                 
-        var scatterPlotData = pitcherScatterPlotSeriesData(pitchTotalsPerPitcherByType);
-        pitchTypeByPitcher(pitcherObjList, scatterPlotData);
     });
     
     
