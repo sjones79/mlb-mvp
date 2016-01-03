@@ -13,14 +13,12 @@ var pitchingData = function() {
         var totalPitches = d3.nest()
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log("total pitches: ", totalPitches);   
         
         //used in the pitchtype scatter plot, gives the total number of each pitch type in the file
         var pitchTotalsPerType = d3.nest()
             .key(function(d) { return d.pitchType; })
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log(" pitch type usage", pitchTotalsPerType);
         
         //used in pitch gauge speed charts
         var averagePitchVelocity = d3.nest()
@@ -32,7 +30,6 @@ var pitchingData = function() {
                 }));
             })
            .map(pitches);
-        console.log("averagePitchVelocity", averagePitchVelocity);
         
          //used in pitch gauge RPM charts
         var averageSpinRate = d3.nest()
@@ -44,7 +41,6 @@ var pitchingData = function() {
                 }));
             })
            .map(pitches);
-        console.log("averageSpinRate", averageSpinRate);
    
         //used in pitch result heat map
         var pitchResultsByType = d3.nest()
@@ -52,7 +48,6 @@ var pitchingData = function() {
             .key(function(d) { return d.pitchResult; })
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log("pitchResults by pitch type", pitchResultsByType);
         
         var pitchTypeMap = createMap(pitchTotalsPerType);
         var pitchResultsByPitch = createPitchResultList(pitchResultsByType);

@@ -66,30 +66,23 @@ var pitcherScatterPlotSeriesData = function (pitcherByPitchType) {
     for (pitchType in pitcherByPitchType) {
         var storageArr = [];
         var pitcherData = pitcherByPitchType[pitchType];
-        console.log("scatter plot pitcherData", pitcherData);
         var pitchers = Object.keys(pitcherData);
-        console.log("scatter plot pitchers", pitchers);
         
         for(var i = 0; i < pitchers.length; i++){
         
             pitchTypeCount = pitcherData[pitchers[i]] !== undefined ? pitcherData[pitchers[i]] : 0;
             storageArr.push([pitchers[i],pitchTypeCount]); 
         }
-        console.log("scatter plot storage arr", storageArr);
         var pitcherObj = {};
         pitcherObj.name = pitchType;
         pitcherObj.data = storageArr;
         
-        console.log("scatter plot build up pitcherObj.data", pitcherObj.data);
         seriesData.push(pitcherObj);
         
-        console.log("scatter plot contents",scatterPlotContents);
     }
     
     scatterPlotContents.seriesData = seriesData;
-    
-    console.log("scatter plot contents", scatterPlotContents);
-        
+            
     return scatterPlotContents;
 }
 
@@ -142,13 +135,9 @@ var pitcherGaugeSeriesData = function(selectedPitcher, velocityMap, spinMap){
     var pitcherVelocityMap = velocityMap[selectedPitcher];
     var pitcherSpinMap = spinMap[selectedPitcher];
     
-    console.log("pitcherVelocityMap",pitcherVelocityMap);
-    console.log("pitcherSpinMap",pitcherSpinMap);
-    
     gaugeData.avgVelocityMap = pitcherVelocityMap;
     gaugeData.avgSpinMap = pitcherSpinMap;
     
-    console.log("gaugeData", gaugeData);
     return gaugeData;
     
 }
