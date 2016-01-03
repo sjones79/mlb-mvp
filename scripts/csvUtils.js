@@ -78,7 +78,6 @@ var pitcherScatterPlotSeriesData = function (pitcherByPitchType) {
         seriesData.push(pitcherObj);
     }
     
-    console.log("pitcher scatter plot series data", seriesData);
     return seriesData;
 }
 
@@ -89,10 +88,8 @@ var getSelectedPitcher = function (pitcherId, pitcherList) {
     
     if (isNumeric(pitcherId)){ 
         var pitcherObj = pitcherList[pitcherId];
-        console.log("pitcherObj from getSelectedPitcher", pitcherObj);
         selectedPitcher = pitcherObj['key'];
     
-        console.log("selected pitcher", selectedPitcher);
     } 
     else{
         console.log("pitcherId is non numeric ", pitcherId);
