@@ -63,10 +63,9 @@
 							
 						</div>
 					</section>
-                    <div id="pitcherScatterPlot"></div>
 				</div>
 			<!-- Pitcher Selections -->
-				<div id="banner-wrapper" class="pitcherSelection notDisplayed">
+				<div id="banner-wrapper" class="pitcherSelection">
 					<div class="inner">
 						<section id="banner" class="container">
                             <p><strong>Pitcher Selection</strong></Stong></p>
@@ -205,6 +204,7 @@
                      
                      $("a").click(function(event) {
                             pitchingDataByPitcher(event.target.id);
+                            showPitchVelocityMenu();
                      });
 			 });
 
@@ -216,7 +216,6 @@
         <script type="text/javascript">
             d3.select("#pitcher").on("click", function(d,i){
                 pitchingDataByPitcher();
-                showPitcherSelection();
             });
             
        
