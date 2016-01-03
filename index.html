@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Pitching Analysis</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
+		
+        <link rel="stylesheet" href="css/demo.css" />
+        <link rel="stylesheet" href="css/customdropdown.css" />
+        <link rel="stylesheet" href="css/chart.css" />
+        <link rel="stylesheet" href="css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+        <script src="js/modernizr.custom.63321.js"></script>
+        <script src="scripts/d3.min.js"></script>
+        <script src="http://code.highcharts.com/adapters/standalone-framework.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+        <script src="scripts/pitchTypeScatterPlot.js"></script>
+        <script src="scripts/pitchResultHeatMap.js"></script>
+        <script src="scripts/pitchGaugeChart.js"></script>
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+				        <h1><a href="index.html">Pitching Analysis</a></h1>
+				        <p>An examination of pitchers from the <strong>2015 World Series</strong></p>
+				    </div>
+                    <section id="features" class="container">
+						<div class="row">
+                            <div class="4u 12u(mobile)">
+
+								<!-- World Series -->
+									<section>
+										<a href="#" class="image featured"><img src="images/baseball/Baseball_Stadium.jpg" alt="" /></a>
+										<ul class="actions">
+							                 <li><a id="worldseries" class="button icon fa-file" href="#banner-wrapper">World Series Summary</a></li>
+						                </ul>
+									</section>
+
+							</div>
+							<div class="4u 12u(mobile)">
+
+								<!-- By Pitcher -->
+									<section>
+										<a href="pitcher.html" class="image featured"><img src="images/baseball/Baseball_Player_Throw_Ball.jpg" alt="" /></a>
+                                        <ul class="actions">
+							                 <li><a href="pitcher.html" class="button icon fa-file">To Pitchers</a></li>
+						                </ul>
+									</section>
+
+							</div>
+							
+						</div>
+					</section>
+				</div>
+
+			<!-- Pitching Types and Totals -->
+				<div id="banner-wrapper">
+                    <div id="pitchTypeTotalScatterPlot"></div>
+				</div>
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div id="main" class="container">
+						<div class="row">
+
+							<!-- Content -->
+								<div id="content" class="8u 12u(mobile)">
+										
+									<!-- Speed/RPM gauges -->
+										<article class="box post">
+                                            <br>
+											 <div class="gaugeContainer">
+                                                <div id="pitchSpeedGaugeCH" class="gauge"></div>
+                                                <div id="spinRotationGaugeCH" class="gauge"></div>
+
+                                                <div id="pitchSpeedGaugeCU" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeCU" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeFC" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFC" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeFF" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFF" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeFS" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFS" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeFT" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeFT" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeIN" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeIN" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeKC" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeKC" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeSI" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeSI" class="gauge notDisplayed"></div>
+
+                                                <div id="pitchSpeedGaugeSL" class="gauge notDisplayed"></div>
+                                                <div id="spinRotationGaugeSL" class="gauge notDisplayed"></div>
+                                            </div>
+                                            <div class="heatmapContainer">
+                                                <div id="pitchResultHeatMap"></div>
+                                            </div>
+										</article>
+								</div>
+                                <!-- Sidebar -->
+								<div id="sidebar" class="4u 12u(mobile)">
+
+										<section id="pitchMenuSection" class="main clearfix notVisible">
+                                            <header>
+												<h3><a href="#">Pitch Velocity and Spin Rate</a></h3>
+								            </header>
+								        <!-- pitch velocity & spin rate picklist -->
+                                            <select id="cd-dropdown" class="cd-select">
+                                                <option value="ch" selected>Change Up (CH)</option>
+                                                <option value="cu">Curveball (CU)</option>
+                                                <option value="fc">Cutter (FC)</option>
+                                                <option value="ff">Four Seamer (FF)</option>
+                                                <option value="fs">Splitter (FS)</option>
+                                                <option value="ft">Two Seamer (FT)</option>
+                                                <option value="in">Intentional Ball (IN)</option>
+                                                <option value="kc">Knuckle Curve (KC)</option>
+                                                <option value="si">Sinker (SI)</option>
+                                                <option value="sl">Slider (SL)</option>
+                                            </select>
+                                     </section> 
+                                        <!--end picklist-->
+								</div>
+
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+            <script src="scripts/csvUtils.js"></script>
+            <script src="scripts/csv.js"></script>
+            <script src="scripts/chartUtils.js"></script>
+			<script src="js/jquery.min.js"></script>
+			<script src="js/jquery.dropotron.min.js"></script>
+			<script src="js/skel.min.js"></script>
+			<script src="js/skel-viewport.min.js"></script>
+			<script src="js/util.js"></script>
+            <script type="text/javascript" src="js/jquery.dropdown.js"></script>
+		    <script type="text/javascript">
+			     $( function() {
+				    $( '#cd-dropdown' ).dropdown( {
+					   gutter : 5,
+					   stack : false,
+					   slidingIn : 100,
+                        onOptionSelect : function (opt) {
+                            showHideGauges(opt);
+                        }
+				    } );
+                     
+			 });
+
+		  </script>
+          
+			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
+        
+        <script src="js/main.js"></script>
+        <script type="text/javascript">
+            d3.select("#worldseries").on("click", function(d,i){
+                pitchingData();
+                showPitchVelocityMenu();
+                   
+                $('html, body').stop().animate({
+                    scrollTop: $( $(this).attr('href') ).offset().top - 160
+                }, 2100);
+                return false;
+            });
+       
+    </script>
+
+	</body>
+</html>
