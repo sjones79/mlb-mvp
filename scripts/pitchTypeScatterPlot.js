@@ -41,16 +41,6 @@ var pitchTypeScatterPlot = function(dataMap, dataObjList) {
             },
 
         },
-        legend: {
-            layout: 'vertical',
-            align: 'left',
-            verticalAlign: 'top',
-            x: 50,
-            y: 5,
-            floating: true,
-            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#fff',
-            borderWidth: 1
-        },
         plotOptions: {
             scatter: {
                 marker: {
