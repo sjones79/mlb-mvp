@@ -155,8 +155,8 @@ var rpmGaugeOpts = {
          // The RPM gauge
 	    yAxis: {
             min: 0,
-            max: 5000,
-            tickInterval:5000,
+            max: 3000,
+            tickInterval:3000,
             startOnTick:true,
             stops: [
 				[0.1, '#55BF3B'], // green
