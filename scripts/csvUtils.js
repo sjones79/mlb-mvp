@@ -59,33 +59,44 @@ var createHeatMapSeriesData = function(data) {
 
 var pitcherScatterPlotSeriesData = function (pitcherByPitchType) {
     var seriesData = [];
-    var pitchTypeNumber;
+    var seriesPitchers = [];
+    var pitchTypeCount;
+    var scatterPlotContents = {};
     
     for (pitchType in pitcherByPitchType) {
         var storageArr = [];
         var pitcherData = pitcherByPitchType[pitchType];
+        console.log("scatter plot pitcherData", pitcherData);
         var pitchers = Object.keys(pitcherData);
+        console.log("scatter plot pitchers", pitchers);
         
         for(var i = 0; i < pitchers.length; i++){
         
-            pitchTypeNumber = pitcherData[pitchers[i]] !== undefined ? pitcherData[pitchers[i]] : 0;
-            storageArr.push([pitchers[i],pitchTypeNumber]);             
+            pitchTypeCount = pitcherData[pitchers[i]] !== undefined ? pitcherData[pitchers[i]] : 0;
+            storageArr.push([pitchers[i],pitchTypeCount]); 
         }
-        
+        console.log("scatter plot storage arr", storageArr);
         var pitcherObj = {};
         pitcherObj.name = pitchType;
         pitcherObj.data = storageArr;
+        
+        console.log("scatter plot build up pitcherObj.data", pitcherObj.data);
         seriesData.push(pitcherObj);
+        
+        console.log("scatter plot contents",scatterPlotContents);
     }
     
-    return seriesData;
+    scatterPlotContents.seriesData = seriesData;
+    
+    console.log("scatter plot contents", scatterPlotContents);
+        
+    return scatterPlotContents;
 }
 
 var pitcherBarChartSeriesData = function(selectedPitcher, pitchTypesAgainstBatterHands) {
     var seriesData = [];
     var pitchObj = pitchTypesAgainstBatterHands[selectedPitcher];
     var barChartContents = {};
-    console.log(pitchObj);
     
     for(hand in pitchObj){
         var storageArr = [];
@@ -93,12 +104,10 @@ var pitcherBarChartSeriesData = function(selectedPitcher, pitchTypesAgainstBatte
         var pitchTypeData = pitchObj[hand];
         
         var pitchTypes = Object.keys(pitchTypeData);
-        console.log("pitcherBarChartSeriesData pitchTypes", pitchTypes);
         
         for(var i = 0; i < pitchTypes.length; i++){
             storageArr.push(pitchTypeData[pitchTypes[i]]);
         }
-        console.log("pitcherBarChartSeriesData storageArr", storageArr);
         
         var barchartObj = {};
         barchartObj.name = hand === 'L' ? "LHH" : "RHH";
@@ -113,20 +122,35 @@ var pitcherBarChartSeriesData = function(selectedPitcher, pitchTypesAgainstBatte
         }
         
     }
-    
-    console.log("barchart series data", seriesData);
+        
     barChartContents.seriesData = seriesData;
     
     var leftHandPitchTypes = barChartContents.left;
     var rightHandPitchTypes = barChartContents.right;
     
     var seriesPitchTypes = leftHandPitchTypes.concat(rightHandPitchTypes);
-    
-    console.log("series pitch types", seriesPitchTypes);
-    
+        
     barChartContents.seriesPitchTypes = seriesPitchTypes;
     
     return barChartContents;
+}
+
+var pitcherGaugeSeriesData = function(selectedPitcher, velocityMap, spinMap){
+    
+    var gaugeData = {};
+    
+    var pitcherVelocityMap = velocityMap[selectedPitcher];
+    var pitcherSpinMap = spinMap[selectedPitcher];
+    
+    console.log("pitcherVelocityMap",pitcherVelocityMap);
+    console.log("pitcherSpinMap",pitcherSpinMap);
+    
+    gaugeData.avgVelocityMap = pitcherVelocityMap;
+    gaugeData.avgSpinMap = pitcherSpinMap;
+    
+    console.log("gaugeData", gaugeData);
+    return gaugeData;
+    
 }
 
 
