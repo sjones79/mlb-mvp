@@ -18,7 +18,6 @@ var pitchingDataByPitcher = function(pitcherId) {
             .key(function(d) { return d.pitchType; })
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log(" pitch type usage", pitchTotalsPerType);
         
         //used to create the picklist
         var pitcherList = d3.nest()
@@ -26,21 +25,17 @@ var pitchingDataByPitcher = function(pitcherId) {
             .rollup(function(leaves) { return leaves.length; })
             .entries(pitches);
         
-        console.log("pitcherList", pitcherList);
         
         //same as above but with array of objects
         var pitcherObjList = d3.nest()
             .key(function(d) { return d.pitcher}).sortKeys(d3.ascending)
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-         console.log("pitcherObjList", pitcherObjList);
         
         var allDataGroupedByPitcher = d3.nest()
             .key(function(d) { return d.pitcher;})
             .entries(pitches);
-        
-        console.log("all data grouped by pitcher",allDataGroupedByPitcher);
-        
+                
         
          //used in the pitchtype scatter plot, gives the total number of each pitch type used by each pitcher
         var pitchTotalsPerPitcherByType = d3.nest()
@@ -48,7 +43,6 @@ var pitchingDataByPitcher = function(pitcherId) {
             .key(function(d){ return d.pitcher})
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log(" pitch type usage by pitcher", pitchTotalsPerPitcherByType);
         
         //used in pitch gauge speed charts
         var averagePitchVelocityByPitcher = d3.nest()
@@ -61,7 +55,6 @@ var pitchingDataByPitcher = function(pitcherId) {
                 }));
             })
            .map(pitches);
-        console.log("averagePitchVelocityByPitcher", averagePitchVelocityByPitcher);
         
          //used in pitch gauge RPM charts
         var averageSpinRateByPitcher = d3.nest()
@@ -74,7 +67,6 @@ var pitchingDataByPitcher = function(pitcherId) {
                 }));
             })
            .map(pitches);
-        console.log("averageSpinRateByPitcher", averageSpinRateByPitcher);
    
         //used in pitch result heat map
         var pitchResultsByPitcherAndType = d3.nest()
@@ -83,7 +75,6 @@ var pitchingDataByPitcher = function(pitcherId) {
             .key(function(d) { return d.pitchResult; })
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log("pitchResults by pitch type and pitcher", pitchResultsByPitcherAndType);
         
          var pitchTypesAgainstBatterHands = d3.nest()
             .key(function(d) { return d.pitcher;})
@@ -91,7 +82,6 @@ var pitchingDataByPitcher = function(pitcherId) {
             .key(function(d) { return d.pitchType;})
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log("pitchTypes against batter hands", pitchTypesAgainstBatterHands);
         
        if(isNumeric(pitcherId)) {
            var selectedPitcher = getSelectedPitcher(pitcherId, pitcherList);

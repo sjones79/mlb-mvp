@@ -1,8 +1,5 @@
 var pitcherGaugesChart = function (avgVelocityMap, avgSpinRateMap){
     
-    console.log("selected pitcher velocity map",avgVelocityMap);
-    console.log("selected pitcher spin rate map",avgSpinRateMap);
-
     // Load the fonts
 Highcharts.createElement('link', {
    href: '//fonts.googleapis.com/css?family=Signika:400,700',
