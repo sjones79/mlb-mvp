@@ -1,7 +1,4 @@
 var pitchGaugeChart = function (avgVelocityMap, avgSpinRateMap){
-    console.log("avgVelocityMap",avgVelocityMap.SI);
-    console.log("avgSpinRate", avgSpinRateMap.SI);
-
     // Load the fonts
 Highcharts.createElement('link', {
    href: '//fonts.googleapis.com/css?family=Signika:400,700',
