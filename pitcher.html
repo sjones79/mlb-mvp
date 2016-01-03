@@ -73,28 +73,32 @@
                             <p><strong>Pitcher Selection</strong></Stong></p>
 							<div class="gridMenu">
                                   <ul>
-                                    <li><a id="ev">Edinson Volquez</a></li>
-                                    <li><a id="mh">Matt Harvey</a></li>
-                                    <li><a id="dd">Danny Duffy</a></li>
-                                    <li><a id="kh">Kelvin Herrera</a></li>
-                                    <li><a id="ar">Addison Reed</a></li>
-                                    <li><a id="tc">Tyler Clippard</a></li>
-                                    <li><a id="jf">Jeurys Familia</a></li>
-                                    <li><a id="lh">Luke Hochevar</a></li>
-                                    <li><a id="wd">Wade Davis</a></li>
-                                    <li><a id="jn">Jon Niese</a></li>
-                                    <li><a id="rm">Ryan Madson</a></li>
-                                    <li><a id="cy">Chris Young</a></li>
-                                    <li><a id="bc">Bartolo Colon</a></li>
-                                    <li><a id="jc">Johnny Cueto</a></li>
-                                    <li><a id="jg">Jacob deGrom</a></li>
-                                    <li><a id="hr">Hansel Robles</a></li>
-                                    <li><a id="sg">Sean Gilmartin</a></li>
-                                    <li><a id="ns">Noah Syndergaard</a></li>
-                                    <li><a id="yv">Yordano Ventura</a></li>
-                                    <li><a id="fm">Franklin Morales</a></li>
-                                    <li><a id="km">Kris Medlen</a></li>
-                                    <li><a id="sm">Steven Matz</a></li>
+                                    <li><a id="0">Addison Reed</a></li>
+                                    <li><a id="1">Bartolo Colon</a></li>
+                                    <li><a id="2">Chris Young</a></li>
+                                    <li><a id="3">Danny Duffy</a></li>
+                                    <li><a id="4">Edinson Volquez</a></li>
+                                    <li><a id="14">Matt Harvey</a></li>
+                                    
+                                    <li><a id="11">Kelvin Herrera</a></li>
+                                    
+                                    <li><a id="19">Tyler Clippard</a></li>
+                                    <li><a id="8">Jeurys Familia</a></li>
+                                    <li><a id="13">Luke Hochevar</a></li>
+                                    <li><a id="20">Wade Davis</a></li>
+                                    <li><a id="10">Jon Niese</a></li>
+                                    <li><a id="16">Ryan Madson</a></li>
+                                    
+                                    
+                                    <li><a id="9">Johnny Cueto</a></li>
+                                    <li><a id="7">Jacob deGrom</a></li>
+                                    <li><a id="6">Hansel Robles</a></li>
+                                    <li><a id="17">Sean Gilmartin</a></li>
+                                    <li><a id="15">Noah Syndergaard</a></li>
+                                    <li><a id="21">Yordano Ventura</a></li>
+                                    <li><a id="5">Franklin Morales</a></li>
+                                    <li><a id="12">Kris Medlen</a></li>
+                                    <li><a id="18">Steven Matz</a></li>
                                   </ul>
                                 </div>
 						</section>
@@ -201,6 +205,7 @@
                      
                      $("a").click(function(event) {
                             alert(event.target.id);
+                            pitchingDataByPitcher(event.target.id);
                      });
 			 });
 
@@ -215,7 +220,6 @@
                 showPitcherSelection();
             });
             
-            d
        
     </script>
 
