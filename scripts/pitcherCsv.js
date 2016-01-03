@@ -7,7 +7,6 @@ var pitchingDataByPitcher = function(pitcherId) {
     
     //load csv file
     d3.csv("data/2015-WS.csv", function (error, pitches){
-        console.log("all pitching data: ", pitches);
          
          //the total number of pitches (or all rows in the file)
         var totalPitches = d3.nest()
@@ -94,14 +93,17 @@ var pitchingDataByPitcher = function(pitcherId) {
         
          var pitchTypesAgainstBatterHands = d3.nest()
             .key(function(d) { return d.pitcher;})
-            .key(function(d) { return d.pitchType;})
             .key(function(d) { return d.batterHand;})
+            .key(function(d) { return d.pitchType;})
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
         console.log("pitchTypes against batter hands", pitchTypesAgainstBatterHands);
         
        if(isNumeric(pitcherId)) {
            var selectedPitcher = getSelectedPitcher(pitcherId, pitcherList);
+           var barChartData = pitcherBarChartSeriesData(selectedPitcher, pitchTypesAgainstBatterHands);
+           pitcherBarChart(barChartData);
+           
        }
                 
         var scatterPlotData = pitcherScatterPlotSeriesData(pitchTotalsPerPitcherByType);
