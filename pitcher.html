@@ -20,6 +20,7 @@
         <script src="http://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
         <script src="scripts/pitchTypeByPitcherScatterPlot.js"></script>
+        <script src="scripts/pitcherBarChart.js"></script>
 	</head>
 	<body class="homepage">
 		<div id="page-wrapper">
@@ -72,28 +73,28 @@
                             <p><strong>Pitcher Selection</strong></Stong></p>
 							<div class="gridMenu">
                                   <ul>
-                                    <li><a href="#">Edinson Volquez</a></li>
-                                    <li><a href="#">Matt Harvey</a></li>
-                                    <li><a href="#">Danny Duffy</a></li>
-                                    <li><a href="#">Kelvin Herrera</a></li>
-                                    <li><a href="#">Addison Reed</a></li>
-                                    <li><a href="#">Tyler Clippard</a></li>
-                                    <li><a href="#">Jeurys Familia</a></li>
-                                    <li><a href="#">Luke Hochevar</a></li>
-                                    <li><a href="#">Wade Davis</a></li>
-                                    <li><a href="#">Jon Niese</a></li>
-                                    <li><a href="#">Ryan Madson</a></li>
-                                    <li><a href="#">Chris Young</a></li>
-                                    <li><a href="#">Bartolo Colon</a></li>
-                                    <li><a href="#">Johnny Cueto</a></li>
-                                    <li><a href="#">Jacob deGrom</a></li>
-                                    <li><a href="#">Hansel Robles</a></li>
-                                    <li><a href="#">Sean Gilmartin</a></li>
-                                    <li><a href="#">Noah Syndergaard</a></li>
-                                    <li><a href="#">Yordano Ventura</a></li>
-                                    <li><a href="#">Franklin Morales</a></li>
-                                    <li><a href="#">Kris Medlen</a></li>
-                                    <li><a href="#">Steven Matz</a></li>
+                                    <li><a id="ev">Edinson Volquez</a></li>
+                                    <li><a id="mh">Matt Harvey</a></li>
+                                    <li><a id="dd">Danny Duffy</a></li>
+                                    <li><a id="kh">Kelvin Herrera</a></li>
+                                    <li><a id="ar">Addison Reed</a></li>
+                                    <li><a id="tc">Tyler Clippard</a></li>
+                                    <li><a id="jf">Jeurys Familia</a></li>
+                                    <li><a id="lh">Luke Hochevar</a></li>
+                                    <li><a id="wd">Wade Davis</a></li>
+                                    <li><a id="jn">Jon Niese</a></li>
+                                    <li><a id="rm">Ryan Madson</a></li>
+                                    <li><a id="cy">Chris Young</a></li>
+                                    <li><a id="bc">Bartolo Colon</a></li>
+                                    <li><a id="jc">Johnny Cueto</a></li>
+                                    <li><a id="jg">Jacob deGrom</a></li>
+                                    <li><a id="hr">Hansel Robles</a></li>
+                                    <li><a id="sg">Sean Gilmartin</a></li>
+                                    <li><a id="ns">Noah Syndergaard</a></li>
+                                    <li><a id="yv">Yordano Ventura</a></li>
+                                    <li><a id="fm">Franklin Morales</a></li>
+                                    <li><a id="km">Kris Medlen</a></li>
+                                    <li><a id="sm">Steven Matz</a></li>
                                   </ul>
                                 </div>
 						</section>
@@ -112,37 +113,38 @@
                                             <br>
                                             <!--
 											 <div class="gaugeContainer">
-                                                <div id="pitchSpeedGaugeCH" class="gauge"></div>
-                                                <div id="spinRotationGaugeCH" class="gauge"></div>
+                                                <div id="pitcherSpeedGaugeCH" class="gauge"></div>
+                                                <div id="pitcherSpinGaugeCH" class="gauge"></div>
 
-                                                <div id="pitchSpeedGaugeCU" class="gauge notDisplayed"></div>
-                                                <div id="spinRotationGaugeCU" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpeedGaugeCU" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeCU" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeFC" class="gauge notDisplayed"></div>
-                                                <div id="spinRotationGaugeFC" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpeedGaugeFC" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeFC" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeFF" class="gauge notDisplayed"></div>
-                                                <div id="spinRotationGaugeFF" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpeedGaugeFF" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeFF" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeFS" class="gauge notDisplayed"></div>
-                                                <div id="spinRotationGaugeFS" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpeedGaugeFS" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeFS" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeFT" class="gauge notDisplayed"></div>
-                                                <div id="spinRotationGaugeFT" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpeedGaugeFT" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeFT" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeIN" class="gauge notDisplayed"></div>
-                                                <div id="spinRotationGaugeIN" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpeedGaugeIN" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeIN" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeKC" class="gauge notDisplayed"></div>
-                                                <div id="spinRotationGaugeKC" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpeedGaugeKC" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeKC" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeSI" class="gauge notDisplayed"></div>
-                                                <div id="spinRotationGaugeSI" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpeedGaugeSI" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeSI" class="gauge notDisplayed"></div>
 
-                                                <div id="pitchSpeedGaugeSL" class="gauge notDisplayed"></div>
-                                                <div id="spinRotationGaugeSL" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpeedGaugeSL" class="gauge notDisplayed"></div>
+                                                <div id="pitcherSpinGaugeSL" class="gauge notDisplayed"></div>
                                             </div>
-                                            <div id="pitchResultHeatMap"></div> -->
+                                            <div id="pitcherBarChart"></div>
+                                            <div id="pitcherHeatMap"></div>-->
 										</article>
 								</div>
                             
@@ -196,6 +198,10 @@
                             showHideGauges(opt);
                         }
 				    } );
+                     
+                     $("a").click(function(event) {
+                            alert(event.target.id);
+                     });
 			 });
 
 		  </script>
@@ -207,7 +213,9 @@
             d3.select("#pitcher").on("click", function(d,i){
                 pitchingDataByPitcher();
                 showPitcherSelection();
-            })
+            });
+            
+            d
        
     </script>
 
