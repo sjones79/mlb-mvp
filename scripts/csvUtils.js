@@ -81,6 +81,54 @@ var pitcherScatterPlotSeriesData = function (pitcherByPitchType) {
     return seriesData;
 }
 
+var pitcherBarChartSeriesData = function(selectedPitcher, pitchTypesAgainstBatterHands) {
+    var seriesData = [];
+    var pitchObj = pitchTypesAgainstBatterHands[selectedPitcher];
+    var barChartContents = {};
+    console.log(pitchObj);
+    
+    for(hand in pitchObj){
+        var storageArr = [];
+        
+        var pitchTypeData = pitchObj[hand];
+        
+        var pitchTypes = Object.keys(pitchTypeData);
+        console.log("pitcherBarChartSeriesData pitchTypes", pitchTypes);
+        
+        for(var i = 0; i < pitchTypes.length; i++){
+            storageArr.push(pitchTypeData[pitchTypes[i]]);
+        }
+        console.log("pitcherBarChartSeriesData storageArr", storageArr);
+        
+        var barchartObj = {};
+        barchartObj.name = hand === 'L' ? "LHH" : "RHH";
+        barchartObj.data = storageArr;
+        seriesData.push(barchartObj);
+        
+        if(hand === 'L'){
+            barChartContents.left = pitchTypes;
+        }
+        else{
+            barChartContents.right = pitchTypes;
+        }
+        
+    }
+    
+    console.log("barchart series data", seriesData);
+    barChartContents.seriesData = seriesData;
+    
+    var leftHandPitchTypes = barChartContents.left;
+    var rightHandPitchTypes = barChartContents.right;
+    
+    var seriesPitchTypes = leftHandPitchTypes.concat(rightHandPitchTypes);
+    
+    console.log("series pitch types", seriesPitchTypes);
+    
+    barChartContents.seriesPitchTypes = seriesPitchTypes;
+    
+    return barChartContents;
+}
+
 
 var getSelectedPitcher = function (pitcherId, pitcherList) {
     
