@@ -7,7 +7,6 @@ var pitchingData = function() {
     
     //load csv file
     d3.csv("data/2015-WS.csv", function (error, pitches){
-        console.log("all pitching data: ", pitches);
         
         
          //the total number of pitches (or all rows in the file)
