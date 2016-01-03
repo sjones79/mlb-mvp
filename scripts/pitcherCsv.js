@@ -31,15 +31,17 @@ var pitchingDataByPitcher = function() {
         console.log("total pitches by pitcher", totalPitchesByPitcher);
         
         //used to create the picklist
-        var pitcherLister = d3.nest()
+        var pitcherList = d3.nest()
             .key(function(d) { return d.pitcher}).sortKeys(d3.ascending)
             .rollup(function(leaves) { return leaves.length; })
             .entries(pitches);
         
+        console.log("pitcherList", pitcherList);
+        
         var list = d3.select("#pitchers").append("select");
 
             list.selectAll("option")
-            .data(pitcherLister)
+            .data(pitcherList)
             .enter()
             .append("option")
             .attr("value", function(d) {return d.key;})
@@ -55,12 +57,12 @@ var pitchingDataByPitcher = function() {
         
         
          //used in the pitchtype scatter plot, gives the total number of each pitch type used by each pitcher
-        var pitchTotalsPerTypeByPitcher = d3.nest()
-            .key(function(d){ return d.pitcher})
+        var pitchTotalsPerPitcherByType = d3.nest()
             .key(function(d) { return d.pitchType; })
+            .key(function(d){ return d.pitcher})
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log(" pitch type usage by pitcher", pitchTotalsPerTypeByPitcher);
+        console.log(" pitch type usage by pitcher", pitchTotalsPerPitcherByType);
         
         //used in pitch gauge speed charts
         var averagePitchVelocityByPitcher = d3.nest()
@@ -102,10 +104,10 @@ var pitchingDataByPitcher = function() {
             .key(function(d) { return d.batterHand;})
             .rollup(function(leaves) { return leaves.length; })
             .map(pitches);
-        console.log("pitchResults by pitch type and pitcher", pitchTypesAgainstBatterHands);
+        console.log("pitchTypes against batter hands", pitchTypesAgainstBatterHands);
         
-        var scatterPlotData = pitcherScatterPlotSeriesData(pitchTotalsPerTypeByPitcher);
-        pitchTypeByPitcher(pitchTotalsPerType, scatterPlotData);
+        var scatterPlotData = pitcherScatterPlotSeriesData(pitchTotalsPerPitcherByType);
+        pitchTypeByPitcher(pitcherList, scatterPlotData);
     });
     
     
