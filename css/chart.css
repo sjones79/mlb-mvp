@@ -22,6 +22,20 @@
     float: left;
 }
 
+.heatmapContainer {
+    height: 400px; 
+    min-width: 310px; 
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
+.barchartContainer {
+    min-width: 310px; 
+    max-width: 800px; 
+    height: 400px; 
+    margin: 0 auto;
+}
+
 .gridMenu {
   width: 900px;
   margin: 0 auto;
